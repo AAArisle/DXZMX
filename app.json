@@ -1,0 +1,32 @@
+{
+
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/follow/follow"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "大学怎么学",
+    "navigationBarBackgroundColor": "#ededed"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#0A59F7",
+    "color": "#a8a8a8",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./images/tabs/房子.png",
+      "selectedIconPath": "./images/tabs/房子 (1).png"
+    },
+    {
+      "pagePath": "pages/follow/follow",
+      "text": "关注",
+      "iconPath": "./images/tabs/关注-未关注.png",
+      "selectedIconPath": "./images/tabs/关注-已关注.png"
+    }]
+  }
+}
