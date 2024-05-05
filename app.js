@@ -2,8 +2,8 @@
 App({
   onLaunch() {
     // 这缓存清不掉啊
-    wx.clearStorageSync()
-    wx.removeStorage()
+    // wx.clearStorageSync()
+    // wx.removeStorage()
 
     // 登录
     // this.login()

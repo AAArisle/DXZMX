@@ -1,0 +1,11 @@
+<!--pages/mine/mine.wxml-->
+<t-cell title="多行带头像" description="一段很长很长很长的内容文字" hover bind:tap="tapToMyProfile">
+  <view class="avatar" slot="left-icon">
+    <open-data type="userAvatarUrl" />
+  </view>
+</t-cell>
+<t-cell-group theme="card">
+  <t-cell title="我的收藏" leftIcon="service" hover arrow bind:tap="tapToMyLikes"/>
+  <t-cell title="我分享的经验" leftIcon="internet" hover arrow bind:tap="tapToMyShared"/>
+  <t-cell title="历史记录" leftIcon="lock-on" hover arrow bind:tap="tapToHistory"/>
+</t-cell-group>
