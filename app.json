@@ -1,9 +1,17 @@
 {
-
+  "//": "pages/login/login",
   "pages": [
-    "pages/login/login",
     "pages/index/index",
-    "pages/follow/follow"
+    "pages/follow/follow",
+    "pages/addpost/addpost",
+    "pages/mine/mine",
+    "pages/news/news",
+    "pages/search/search",
+    "pages/detailpost/detailpost",
+    "pages/mylikes/mylikes",
+    "pages/history/history",
+    "pages/myshared/myshared",
+    "pages/myprofile/myprofile"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -14,19 +22,38 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
-    "selectedColor": "#0A59F7",
-    "color": "#a8a8a8",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "./images/tabs/房子.png",
-      "selectedIconPath": "./images/tabs/房子 (1).png"
-    },
-    {
-      "pagePath": "pages/follow/follow",
-      "text": "关注",
-      "iconPath": "./images/tabs/关注-未关注.png",
-      "selectedIconPath": "./images/tabs/关注-已关注.png"
-    }]
+    "selectedColor": "#1890ff",
+    "color": "#595959",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/tabs/首页1.png",
+        "selectedIconPath": "./images/tabs/首页2.png"
+      },
+      {
+        "pagePath": "pages/follow/follow",
+        "text": "关注",
+        "iconPath": "./images/tabs/关注1.png",
+        "selectedIconPath": "./images/tabs/关注2.png"
+      },
+      {
+        "pagePath": "pages/addpost/addpost",
+        "iconPath": "./images/tabs/添加.png",
+        "selectedIconPath": "./images/tabs/添加.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "消息",
+        "iconPath": "./images/tabs/消息1.png",
+        "selectedIconPath": "./images/tabs/消息2.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./images/tabs/我的1.png",
+        "selectedIconPath": "./images/tabs/我的2.png"
+      }
+    ]
   }
 }

@@ -1,0 +1,7 @@
+/* pages/mine/mine.wxss */
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}

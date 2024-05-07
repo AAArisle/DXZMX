@@ -1,29 +1,11 @@
-// pages/top.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+// pages/detailpost/detailpost.js
 Page({
-  tapToSearch() {
-    wx.navigateTo({
-      url: '../search/search',
-    })
-  },
-  tapToDetail()
-  {
-    wx.navigateTo({
-      url: '../detailpost/detailpost',
-    })
-  },
 
   /**
    * 页面的初始数据
    */
   data: {
-    rowColsAvater: [{ size: '96rpx', type: 'circle' }],
-    rowColsImage: [{ size: '96rpx', type: 'rect' }],
-    rowColsContent: [{ width: '50%' }, { width: '100%' }],
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-    },
+
   },
 
   /**
