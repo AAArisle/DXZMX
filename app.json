@@ -22,7 +22,7 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
-    "selectedColor": "#1890ff",
+    "selectedColor": "#0052d9",
     "color": "#595959",
     "list": [
       {
