@@ -13,3 +13,4 @@
     <input type="nickname" class="nickname-input" placeholder="请输入昵称" value="{{userInfo.nickName}}" bind:change="onNickNameInput" />
   </view>
 </view>
+<button bind:tap="uploadData">保存</button>
