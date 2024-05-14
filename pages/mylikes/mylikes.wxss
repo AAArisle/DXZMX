@@ -1,1 +1,53 @@
 /* pages/mylikes/mylikes.wxss */
+page{
+  background-color:#ededed;
+}
+
+.group {
+  display: flex;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+}
+
+.group-avatar {
+  margin-right: 24rpx;
+}
+
+.group-content {
+  width: 566rpx;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+}
+
+.contain{
+  position: absolute;
+  top: 86rpx;
+  left: 00rpx;
+}
+
+.history-search-entry {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(235, 235, 235, 1);
+}
+
+.edit-img {
+  margin-top: 16rpx;
+}

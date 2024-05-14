@@ -1,1 +1,53 @@
 /* pages/myprofile/myprofile.wxss */
+.avatar-wrapper {
+  padding: 0;
+  width: 300rpx !important;
+  width: 300rpx !important;
+  border-radius: 50rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.avatar {
+  display: block;
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 32rpx;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 200rpx;
+}
+
+.nickname-input {
+  flex: 1;
+}
+
+.user_message_title{
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  height: 100rpx;
+  background-color:rgb(200, 200, 200)
+}
+.user_message_text {
+  font-size:50rpx;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;  
+}
+.user_message_edit{
+  height: 100%;
+  display:flex;
+  align-items: center;
+}

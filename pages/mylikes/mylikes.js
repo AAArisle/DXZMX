@@ -1,5 +1,17 @@
 // pages/mylikes/mylikes.js
 Page({
+  tapToDetail()
+  {
+    wx.navigateTo({
+      url: '../detailpost/detailpost',
+    })
+  },
+  searchInHistory(e) {
+    console.log(e)
+  },
+  Edit(e) {
+    console.log(e)
+  },
 
   /**
    * 页面的初始数据

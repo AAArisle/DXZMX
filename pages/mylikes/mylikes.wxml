@@ -1,2 +1,43 @@
 <!--pages/mylikes/mylikes.wxml-->
-<text>pages/mylikes/mylikes.wxml</text>
+<view class="history-search-entry" >
+  <t-search class="search-input" placeholder="" bind:change="searchInHistory" />
+  <t-icon class="edit-img" name="more" size="24" bind:click="Edit" />
+</view>
+
+<view class="contain" >
+<view style="background-color: white; " bind:tap="tapToDetail">
+  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
+    <view class="avatar" slot="left-icon">
+      <open-data type="userAvatarUrl" />
+    </view>
+  </t-cell>
+  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
+</view>
+<t-divider></t-divider>
+<view style="background-color: white; " bind:tap="tapToDetail">
+  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
+    <view class="avatar" slot="left-icon">
+      <open-data type="userAvatarUrl" />
+    </view>
+  </t-cell>
+  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
+</view>
+<t-divider></t-divider>
+<view style="background-color: white; " bind:tap="tapToDetail">
+  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
+    <view class="avatar" slot="left-icon">
+      <open-data type="userAvatarUrl" />
+    </view>
+  </t-cell>
+  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
+</view>
+<t-divider></t-divider>
+<view style="background-color: white; " bind:tap="tapToDetail">
+  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
+    <view class="avatar" slot="left-icon">
+      <open-data type="userAvatarUrl" />
+    </view>
+  </t-cell>
+  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
+</view>
+</view>
