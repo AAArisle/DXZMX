@@ -39,6 +39,11 @@ Page({
       })
       this.uploadData()
     }
+    else{
+      this.setData({
+        "userInfo.nickName": this.data.userInfo.nickName,
+      })
+    }
   },
   uploadData() {
     wx.getStorage({
@@ -59,7 +64,18 @@ Page({
     })
   },
   onClickUserMessageEdit(){
-
+    if(this.data.inputDisabled.nickName){
+      this.setData({
+        "inputDisabled.nickName": false,
+        "userMesaageEditIcon": "edit-off",
+      })
+    }
+    else{
+      this.setData({
+        "inputDisabled.nickName": true,
+        "userMesaageEditIcon": "edit-2",
+      })
+    }
   },
 
   /**
@@ -70,6 +86,10 @@ Page({
       avatarUrl: defaultAvatarUrl,
       nickName: '',
     },
+    userMesaageEditIcon: "edit-2",
+    inputDisabled:{
+      nickName: true
+    }
   },
 
   /**

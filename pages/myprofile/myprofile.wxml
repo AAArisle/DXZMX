@@ -6,10 +6,10 @@
   <view class="user_message_title">
     <view></view>
     <text class="user_message_text">用户信息</text>
-    <t-icon class="user_message_edit" name="edit-2" size="50rpx" data-name="{{item}}" bind:click="onClickUserMessageEdit" />
+    <t-icon class="user_message_edit" name="{{userMesaageEditIcon}}" size="50rpx" data-name="{{item}}" bind:click="onClickUserMessageEdit" />
   </view>
   <view class="nickname-wrapper">
     <text class="nickname-label">昵称</text>
-    <input type="nickname" class="nickname-input" placeholder="请输入昵称" value="{{userInfo.nickName}}" bind:change="onNickNameInput" />
+    <input type="nickname" class="nickname-input" disabled="{{inputDisabled.nickName}}" placeholder="请输入昵称" value="{{userInfo.nickName}}" bind:change="onNickNameInput" />
   </view>
 </view>
