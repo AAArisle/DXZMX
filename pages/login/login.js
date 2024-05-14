@@ -78,7 +78,7 @@ Page({
     const { nickName } = this.data.userInfo
     this.setData({
       "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
     })
     this.uploadData()
   },
@@ -87,7 +87,7 @@ Page({
     const { avatarUrl } = this.data.userInfo
     this.setData({
       "userInfo.nickName": nickName,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
     })
     this.uploadData()
   },
