@@ -1,1 +1,196 @@
 /* pages/detailpost/detailpost.wxss */
+
+.btimg3{
+  width: 45px;
+  height: 45px;
+  margin: 0 30px; 
+  position: relative;
+  top: 10px;
+}
+.btimg{
+  width: 50px;
+  height: 50px;
+  margin: 0 30px;
+  position: relative;
+  top: 10px;
+}
+.bt{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  border-top:1px solid black ;
+}
+.tbsimg{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+  transform: rotate(0.5turn);
+}
+.tbimg{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+}
+.rtr{
+  color: rgb(192, 192, 192);
+}
+.rc{
+  width: 90%;
+}
+.rtl{
+  width: 50%;
+}
+.rt{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: left;
+  line-height: 40px;
+}
+.rightss{
+  width: calc(100%-40px);
+  margin-left: 30px;
+}
+.tx{
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 50%;
+}
+.leftss{
+  width: 40px;
+  height: 100%;
+  margin-top: 10px;
+}
+.posts{
+  width: 90%;
+  margin-left: 5%;
+}
+.post{
+  width: 90%;
+  margin-left: 5%;
+}
+.itemss{
+  width: 30%;
+  margin-left: 2%;
+}
+.dimg{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
+.datas{
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 30px;
+  border-top: 1px solid rgb(65, 65, 65);
+  border-bottom: 1px solid rgb(65, 65, 65);
+}
+.item{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  text-align: center;
+}
+.tags{
+  width: 90%;
+  height: 30px;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.iiimg{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  position: relative;
+  left: 300px;
+}
+.iimg{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  position: relative;
+  left: 290px;
+}
+.icons{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: right;
+}
+.content{
+  width: 90%;
+  margin-left: 5%;
+}
+.topi{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  left: 20px;
+}
+.right{
+  width: 20%;
+}
+.left{
+  width: 60%;
+  line-height: 40px;
+  margin-left: 20px;
+  font-size:17px;
+  font-weight: 800;
+}
+.post{
+  width: 100vw;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.schoolLogo{
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  background-color: rgb(129, 128, 128);
+  text-align: center;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.uschool{
+  width: 100%;
+  font-size: 15px;
+  height: 20px;
+  color: rgb(146, 146, 146);
+}
+.uname{
+  width: 100%;
+  height: 20px;
+  display: block;
+  margin-top: 5px;
+}
+.userinfo{
+  width: 240px;
+  height: 50px;
+}
+.userIcon{
+  width: 30px;
+  height: 30px;
+  margin: 10px 20px;
+}
+.head{
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: left;
+}
