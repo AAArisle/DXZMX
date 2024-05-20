@@ -8,9 +8,62 @@ Page({
       title: '',
       body: '',
     },
-    isArticleOK: false,
+    // 暂时不做判断
+    isArticleOK: true,
+    mypath: '../../images/upload.png',
+    school:["清华大学","北京大学"],
+    schooldata:'请选择',
+    zhuanye:["数学系","计算机系"],
+    zhuanyedata:'请选择',
+    class:["高等数学","计算机科学"],
+    classdata:'请选择'
   },
-
+  share:function(){
+    this.setData({
+      schooldata:'请选择',
+      zhuanyedata:'请选择',
+      classdata:'请选择'
+    })
+    wx.showToast({
+      title: '发布成功',
+      icon:'none'
+    })
+  },
+  schoolChange:function(e){
+    this.setData({
+      schooldata : this.data.school[e.detail.value]
+    })
+  },
+  zhuanyeChange:function(e){
+    this.setData({
+      zhuanyedata : this.data.zhuanye[e.detail.value]
+    })
+  },
+  classChange:function(e){
+    this.setData({
+      classdata : this.data.class[e.detail.value]
+    })
+  },
+  upload:function(){
+    var that = this
+    wx.chooseMedia({
+      count:1,
+      mediaType:["image"],
+      sourceType:['album', 'camera'],
+      success:res=>{
+        const path = res.tempFiles.tempFilePath
+        if(path != ''){
+          wx.showToast({
+            title: '上传图片成功',
+            icon:'none'
+          })
+          that.setData({
+            mypath : path
+          })
+        }
+      }
+    })
+  },
   // 修改标题文本
   onTitleChange(e) {
     const title = e.detail.value
@@ -37,6 +90,7 @@ Page({
     var formData = e.detail.value; //提取表单数据
     
     if (this.data.isArticleOK){
+      console.log("正在上传...");
       app.login(() => {
         wx.getStorage({
           key: 'access',
