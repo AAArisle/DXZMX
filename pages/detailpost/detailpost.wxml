@@ -75,7 +75,7 @@
       </view>
     </view>
     <view class="rc">
-      We aupply a series of design principles,practical patterns and high quailty design resources (Sketch and Axure),to
+      We aupply a series of design principles,practical patterns and high quailty design resources (Sketch and Axure)
     </view>
     <view class="tb">
       <image src="../../images/dz.png" class="tbimg"/>0
@@ -85,7 +85,7 @@
   </view>
 </view>
 <view class="bt">
-  <image src="../../images/s.png" class="btimg"/>
+  <image src="../../images/s.png" class="btimg3"/>
   <image src="../../images/pl.png" class="btimg"/>
   <image src="../../images/dz.png" class="btimg3"/>
 </view>

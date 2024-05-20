@@ -1,1 +1,40 @@
 /* pages/addpost/addpost.wxss */
+.btn[type="primary"]{
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+}
+.pickerss{
+  width: 60%;
+}
+.pickers{
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon{
+  width: 30px;
+  height: 30px;
+}
+.pname{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.upload{
+  width: 70px;
+  height: 70px;
+}
+.content{
+  padding: 10px 0;
+  height: 150px;
+}
+.title{
+  padding: 20px;
+  height: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}

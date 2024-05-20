@@ -1,2 +1,48 @@
 <!--pages/addpost/addpost.wxml-->
-<text>pages/addpost/addpost.wxml</text>
+<form catchsubmit="formSubmit">
+  <input type="text" bindinput="titleinput" placeholder="经验标题" class="title" name="title"/>
+  <view style="border-bottom: 1px solid #eee;padding: 20px;">
+    <textarea value="{{content}}" placeholder="经验正文详细内容" class="content" name="body"></textarea>
+    <image src="{{mypath}}" class="upload" bind:tap="upload" />
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <image src="../../images/school.png" class="icon" />
+      <view style="margin-left: 5px;">
+        学校名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{school}}"  class="pickerss" bindchange="schoolChange">
+      <view class="picker">
+        {{schooldata}}
+      </view>
+    </picker>
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <image src="../../images/zhuanye.png" class="icon" />
+      <view style="margin-left: 5px;">
+        专业名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{zhuanye}}"  class="pickerss" bindchange="zhuanyeChange">
+      <view class="picker">
+        {{zhuanyedata}}
+      </view>
+    </picker>
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <image src="../../images/class.png" class="icon" />
+      <view style="margin-left: 5px;">
+        课程名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{class}}"  class="pickerss" bindchange="classChange">
+      <view class="picker">
+        {{classdata}}
+      </view>
+    </picker>
+  </view>
+  <button formType="submit" type="primary" class="btn" bind:tap="share">发布经验</button>
+</form>
