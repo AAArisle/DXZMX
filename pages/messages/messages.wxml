@@ -1,0 +1,12 @@
+<!--pages/messages/messages.wxml-->
+<block wx:for="{{[1,2,3,4]}}" wx:key="index">
+  <view style="background-color: white; " bind:tap="tapToDetail">
+    <t-cell title="暨南大学" description="2024-5-20">
+      <view class="news-icon-view" slot="left-icon">
+        <image class="news-icon" src="../../images/大学/暨南大学.png" ></image>
+      </view>
+    </t-cell>
+    <t-cell title="新内容发布" description="点击前往详情界面"></t-cell>
+  </view>
+  <t-divider></t-divider>
+</block>

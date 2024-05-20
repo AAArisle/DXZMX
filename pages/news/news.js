@@ -1,6 +1,11 @@
 // pages/news/news.js
 Page({
-
+  tapToMessages()
+  {
+    wx.navigateTo({
+      url: '../messages/messages',
+    })
+  },
   /**
    * 页面的初始数据
    */

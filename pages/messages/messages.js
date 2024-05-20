@@ -1,4 +1,4 @@
-// pages/mylikes/mylikes.js
+// pages/messages/messages.js
 Page({
   tapToDetail()
   {
@@ -6,13 +6,7 @@ Page({
       url: '../detailpost/detailpost',
     })
   },
-  searchInMyLike(e) {
-    console.log(e)
-  },
-  Edit(e) {
-    console.log(e)
-  },
-
+  
   /**
    * 页面的初始数据
    */
