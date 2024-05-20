@@ -18,6 +18,11 @@ Page({
               this.setData({
                 "userInfo.avatarUrl": res.data.avatar_url,
                 "userInfo.nickName": res.data.nickname,
+                "userInfo.sex": res.data.sex,
+                "userInfo.email": res.data.email,
+                "userInfo.school": res.data.school,
+                "userInfo.grade": res.data.grade,
+                "userInfo.major": res.data.major,
               })
             }
           })
@@ -26,56 +31,50 @@ Page({
     })
   },
   onChooseAvatar(e) {
+    const { avatarUrl } = e.detail
+    const { nickName } = this.data.userInfo
     this.setData({
-      "userInfo.avatarUrl": e.detail,
+      "userInfo.avatarUrl": avatarUrl,
+      hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
     })
   },
   onNickNameInput(e) {
     const nickName = e.detail.value
+    const { avatarUrl } = this.data.userInfo
     if(nickName != ""){
       this.setData({
         "userInfo.nickName": nickName,
-      })
-    }
-    else{
-      this.setData({
-        "userInfo.nickName": this.data.userInfo.nickName,
+        hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
       })
     }
   },
   uploadData() {
-    app.login(() => {
-      wx.getStorage({
-        key: 'access',
-        success: (result) => {
-          const access = result.data;
-          wx.request({
-            url: 'http://127.0.0.1:8000/api/weixin/data/',
-            method: 'POST',
-            header: {
-              'Authorization': 'Bearer ' + access
-            },
-            data: {
-              userInfo: this.data.userInfo
-            }
-          })
-        }
+    if (this.data.hasUserInfo){
+      app.login(() => {
+        wx.getStorage({
+          key: 'access',
+          success: (result) => {
+            const access = result.data;
+            wx.request({
+              url: 'http://127.0.0.1:8000/api/weixin/data/',
+              method: 'POST',
+              header: {
+                'Authorization': 'Bearer ' + access
+              },
+              data: {
+                userInfo: this.data.userInfo
+              }
+            })
+          }
+        })
       })
-    })
+    }
   },
-  onClickUserMessageEdit(){
-    if(this.data.inputDisabled.nickName){
-      this.setData({
-        "inputDisabled.nickName": false,
-        "userMesaageEditIcon": "edit-off",
-      })
-    }
-    else{
-      this.setData({
-        "inputDisabled.nickName": true,
-        "userMesaageEditIcon": "edit-2",
-      })
-    }
+
+  sexChange:function(e){
+    this.setData({
+      "userInfo.sex" : this.data.sexRange[e.detail.value]
+    })
   },
 
   /**
@@ -85,10 +84,18 @@ Page({
     userInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
+      sex: '未知',
+      email: '',
+      school: '',
+      grade: '',
+      major: '',
     },
-    userMesaageEditIcon: "edit-2",
-    inputDisabled:{
-      nickName: true
-    }
+    hasUserInfo: true,
+    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
+    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    sexRange: ["未知","男","女"],
+    schoolRange:["大学1","大学2","大学3"],
+    gradeRange:["大一","大二","大三","大四"],
+    majorRange:["专业1","专业2","专业3"],
   },
 })

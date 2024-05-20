@@ -38,6 +38,11 @@ Page({
     userInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
+      sex: '未知',
+      email: '',
+      school: '',
+      grade: '',
+      major: '',
     },
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
