@@ -25,12 +25,13 @@
   align-items: center;
 }
 .upload{
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
 }
 .content{
   padding: 10px 0;
-  height: 150px;
+  height: 175px;
 }
 .title{
   padding: 20px;
