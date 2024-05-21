@@ -7,6 +7,7 @@
     "pages/addpost/addpost",
     "pages/mine/mine",
     "pages/news/news",
+    "pages/messages/messages",
     "pages/search/search",
     "pages/detailpost/detailpost",
     "pages/mylikes/mylikes",

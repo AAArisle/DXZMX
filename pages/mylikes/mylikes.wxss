@@ -38,7 +38,7 @@ page{
 .history-search-entry {
   display: grid;
   grid-template-columns: 6fr 1fr;
-  width: 100%;
+  width:100%;                    
   box-sizing: border-box;
   border-top: .5px solid rgba(0, 0, 0, 0.1);
   border-bottom: .5px solid rgba(0, 0, 0, 0.1);

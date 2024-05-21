@@ -4,12 +4,6 @@ const app = getApp()
 Page({
   // 页面的初始数据
   data: {
-    article: {
-      title: '',
-      body: '',
-    },
-    // 暂时不做判断
-    isArticleOK: true,
     mypath: '../../images/upload.png',
     school:["清华大学","北京大学"],
     schooldata:'请选择',
@@ -18,17 +12,7 @@ Page({
     class:["高等数学","计算机科学"],
     classdata:'请选择'
   },
-  share:function(){
-    this.setData({
-      schooldata:'请选择',
-      zhuanyedata:'请选择',
-      classdata:'请选择'
-    })
-    wx.showToast({
-      title: '发布成功',
-      icon:'none'
-    })
-  },
+
   schoolChange:function(e){
     this.setData({
       schooldata : this.data.school[e.detail.value]
@@ -68,29 +52,40 @@ Page({
   onTitleChange(e) {
     const title = e.detail.value
     const { body } = this.data.article
-    this.setData({
-      "article.title": title,
-      isArticleOK: title && body,
-    })
+    if (title != ""){
+      this.setData({
+        "article.title": title,
+        isArticleOK: title && body,
+      })
+    }
   },
 
   // 修改内容文本
   onBodyChange(e) {
     const body = e.detail.value
     const { title } = this.data.article
-    this.setData({
-      "article.body": body,
-      isArticleOK: title && body,
-    })
+    if (body != ""){
+      this.setData({
+        "article.body": body,
+        isArticleOK: title && body,
+      });
+      console.log(this.data.article);
+    }
   },
 
   // 将清单数据提交到django
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var formData = e.detail.value; //提取表单数据
-    
-    if (this.data.isArticleOK){
+
+    if (formData.title && formData.body){
       console.log("正在上传...");
+      wx.showToast({
+        title: '分享经验中',
+        duration: 2000,
+        icon: 'loading',
+        mask: true
+      })
       app.login(() => {
         wx.getStorage({
           key: 'access',
@@ -103,17 +98,15 @@ Page({
                 'Authorization': 'Bearer ' + access,
                 'content-type': 'application/x-www-form-urlencoded',
               },
-              // data: {
-              //   article: this.data.article
-              // },
               data: formData, //表单数据
-              success:()=>{
+              success: () => {
                 wx.showToast({
                   title: '分享经验成功！', //提示的内容
                   duration: 2000, //持续的时间
                   icon: 'success', //图标有success、error、loading、none四种
                   mask: true //显示透明蒙层 防止触摸穿透
-                })
+                });
+                this.formReset();
               }
             })
           }
@@ -122,11 +115,16 @@ Page({
     }
     else {
       wx.showToast({
-        title: '分享经验失败！请检查标题和内容是否填写！',
+        title: '请填写标题内容',
         duration: 2000,
         icon: 'error',
         mask: true
       })
     }
   },
+
+  // 重置表单
+  formReset(e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+  }
 })

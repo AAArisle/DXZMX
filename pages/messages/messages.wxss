@@ -1,4 +1,4 @@
-/* pages/news/news.wxss */
+/* pages/messages/messages.wxss */
 page{
   background-color:#ededed;
 }

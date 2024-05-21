@@ -1,5 +1,5 @@
 /* pages/addpost/addpost.wxss */
-.btn[type="primary"]{
+.btn{
   width: 50%;
   height: 40px;
   line-height: 40px;
