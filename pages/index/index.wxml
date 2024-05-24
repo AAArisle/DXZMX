@@ -1,12 +1,14 @@
 <!-- 首页 -->
-<block wx:for="{{[1,2,3,4]}}" wx:key="index">
+
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+
+<block wx:for="{{article}}" wx:key="index">
   <view style="background-color: white; " bind:tap="tapToDetail">
-    <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
-      <view class="avatar" slot="left-icon">
-        <open-data type="userAvatarUrl" />
-      </view>
+    <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}">
+      <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
     </t-cell>
-    <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
+    <t-cell title="{{item.fields.title}}" description="{{item.fields.body}}"/>
   </view>
   <t-divider></t-divider>
 </block>

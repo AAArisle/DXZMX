@@ -1,0 +1,15 @@
+// 在wxml里截取字符串的方法
+
+var sub = function(val, start, end) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  // if (val.length > 17) {
+  //   return val.substring(0, 17) + "...";
+  // } else {
+  //   return val;
+  // }
+
+  return val.substring(start, end);
+}
+module.exports.sub = sub;
