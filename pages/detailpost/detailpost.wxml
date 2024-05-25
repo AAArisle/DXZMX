@@ -1,66 +1,61 @@
 <!--pages/detailpost/detailpost.wxml-->
-<view class="head">
-  <image src="../../images/user.png" class="userIcon"/>
-  <view class="userinfo">
-    <text class="uname">用户名</text>
-    <text class="uschool">大学名称|更新时间</text>
+
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+
+<view class="background">
+  <view class="head">
+    <image src="{{article[0].avatar_url}}" class="userIcon"/>
+    <view class="userinfo">
+      <text class="uname">{{article[0].fields.author}}</text>
+      <text class="uschool">大学名称 | {{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
+    </view>
+    <view class="schoolLogo">
+      校徽
+    </view>
   </view>
-  <view class="schoolLogo">
-    校徽
+
+  <view class="post">
+    <view class="left">
+      {{article[0].fields.title}}
+    </view>
+    <view class="right">
+      <image src="../../images/top.png" class="topi"/>
+    </view>
+  </view>
+
+  <view class="content">
+    <text>{{article[0].fields.body}}</text>
+  </view>
+
+  <view class="icons">
+    <image src="../../images/edit.png" class="iimg"/>
+    <image src="../../images/delete.png" class="iiimg"/>
+  </view>
+
+  <view class="tags">
+    <view wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="index" class="item">
+      Tag
+    </view>
+  </view>
+
+  <view class="datas">
+    <view class="itemss">
+      <image src="../../images/ll.png" class="dimg"/>
+      {{article[0].fields.total_views}}
+    </view>
+    <view class="itemss">
+      <image src="../../images/pl.png" class="dimg"/>
+      评论数
+    </view>
+    <view class="itemss">
+      <image src="../../images/dz.png" class="dimg"/>
+      {{article[0].fields.likes}}
+    </view>
   </view>
 </view>
-<view class="post">
-  <view class="left">
-  标题
-  </view>
-  <view class="right">
-    <image src="../../images/top.png" class="topi"/>
-  </view>
-</view>
-<view class="content">
-经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情
-</view>
-<view class="icons">
-  <image src="../../images/edit.png" class="iimg"/>
-  <image src="../../images/delete.png" class="iiimg"/>
-</view>
-<view class="tags">
-  <view class="item">
-  Tag1
-  </view>
-  <view class="item">
-  Tag2
-  </view>
-  <view class="item">
-  Tag3
-  </view>
-  <view class="item">
-  Tag4
-  </view>
-  <view class="item">
-  Tag5
-  </view>
-  <view class="item">
-  Tag6
-  </view>
-  <view class="item">
-  Tag7
-  </view>
-</view>
-<view class="datas">
-<view class="itemss">
-<image src="../../images/ll.png" class="dimg"/>
-浏览数
-</view>
-<view class="itemss">
-<image src="../../images/pl.png" class="dimg"/>
-评论数
-</view>
-<view class="itemss">
-<image src="../../images/dz.png" class="dimg"/>
-点赞数
-</view>
-</view>
+<t-divider></t-divider>
+
 <view class="post">
   <view class="leftss">
     <image src="../../images/tx.png" class="tx"/>

@@ -1,4 +1,11 @@
 /* pages/detailpost/detailpost.wxss */
+page{
+  background-color:#ededed;
+}
+
+.background{
+  background-color:#ffffff;
+}
 
 .btimg3{
   width: 45px;
@@ -76,24 +83,26 @@
   margin-left: 5%;
 }
 .itemss{
-  width: 30%;
-  margin-left: 2%;
+  width: 100%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 .dimg{
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   position: relative;
-  top: 5px;
+  top: 6px;
 }
 .datas{
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
+  margin-left: 0%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  height: 30px;
-  border-top: 1px solid rgb(65, 65, 65);
-  border-bottom: 1px solid rgb(65, 65, 65);
+  height: 35px;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  background-color: #ffffff;
 }
 .item{
   width: 60px;
@@ -134,6 +143,7 @@
 .content{
   width: 90%;
   margin-left: 5%;
+  min-width: 300px;
 }
 .topi{
   width: 30px;
@@ -146,7 +156,7 @@
   width: 20%;
 }
 .left{
-  width: 60%;
+  width: 80%;
   line-height: 40px;
   margin-left: 20px;
   font-size:17px;

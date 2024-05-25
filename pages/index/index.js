@@ -7,9 +7,10 @@ Page({
       url: '../search/search',
     })
   },
-  tapToDetail() {
+  tapToDetail(e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../detailpost/detailpost',
+      url: '../detailpost/detailpost?id='+id,
     })
   },
 
@@ -21,9 +22,9 @@ Page({
   },
 
     /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad(options) {
+  onShow() {
     app.login(() => {
       // 用token获取用户数据
       wx.getStorage({

@@ -33,8 +33,8 @@ page{
   display: flex;
   justify-content: center;
   height: 35px;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
+  /* border-top: 1px solid #f3f3f3; */
+  /* border-bottom: 1px solid #f3f3f3; */
   background-color: #ffffff;
 }
 .itemss{
@@ -46,5 +46,5 @@ page{
   width: 24px;
   height: 24px;
   position: relative;
-  top: 5px;
+  top: 6px;
 }
