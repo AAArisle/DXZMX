@@ -8,7 +8,21 @@
     <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}">
       <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
     </t-cell>
-    <t-cell title="{{item.fields.title}}" description="{{item.fields.body}}"/>
+    <t-cell title="{{item.fields.title}}" description="{{tools.sub(item.fields.body,100)}}"/>
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        {{item.fields.total_views}}
+      </view>
+      <view class="itemss">
+        <image src="../../images/pl.png" class="dimg"/>
+        评论数
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        {{item.fields.likes}}
+      </view>
+    </view>
   </view>
   <t-divider></t-divider>
 </block>

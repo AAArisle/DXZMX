@@ -2,7 +2,7 @@
 <form catchsubmit="formSubmit" catchreset="formReset">
   <input type="text" placeholder="经验标题" class="title" value="{{article.title}}" name="title"/>
   <view style="border-bottom: 1px solid #eee;padding: 20px;">
-    <textarea placeholder="经验正文详细内容" class="content" value="{{article.body}}" name="body"></textarea>
+    <textarea placeholder="经验正文详细内容" class="content" maxlength="-1" auto-height value="{{article.body}}" name="body"></textarea>
     <image src="{{article.mypath}}" class="upload" bind:tap="upload" />
   </view>
   <view class="pickers">

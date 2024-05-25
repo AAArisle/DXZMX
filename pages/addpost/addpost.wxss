@@ -1,9 +1,9 @@
 /* pages/addpost/addpost.wxss */
 .btn{
-  width: 50%;
-  height: 40px;
+  width: 40%;
+  height: 100%;
   line-height: 40px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .pickerss{
   width: 60%;
@@ -28,10 +28,12 @@
   width: 100px;
   height: 100px;
   border-radius: 10%;
+  margin-top: 10px;
 }
 .content{
   padding: 10px 0;
-  height: 175px;
+  min-height: 175px;
+  min-width: 440px;
 }
 .title{
   padding: 20px;

@@ -5,91 +5,28 @@
 </view>
 
 <view class="contain" >
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
+  <block wx:for="{{[1,2,3,4]}}" wx:key="index">
+    <view style="background-color: white; " bind:tap="tapToDetail">
+      <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
+        <view class="avatar" slot="left-icon">
+          <open-data type="userAvatarUrl" />
+        </view>
+      </t-cell>
     </view>
-  </t-cell>
-</view>
-<view class="datas">
-<view class="itemss">
-<image src="../../images/ll.png" class="dimg"/>
-浏览数
-</view>
-<view class="itemss">
-<image src="../../images/pl.png" class="dimg"/>
-评论数
-</view>
-<view class="itemss">
-<image src="../../images/dz.png" class="dimg"/>
-点赞数
-</view>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        浏览数
+      </view>
+      <view class="itemss">
+        <image src="../../images/pl.png" class="dimg"/>
+        评论数
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        点赞数
+      </view>
     </view>
-  </t-cell>
-</view>
-<view class="datas">
-<view class="itemss">
-<image src="../../images/ll.png" class="dimg"/>
-浏览数
-</view>
-<view class="itemss">
-<image src="../../images/pl.png" class="dimg"/>
-评论数
-</view>
-<view class="itemss">
-<image src="../../images/dz.png" class="dimg"/>
-点赞数
-</view>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
-    </view>
-  </t-cell>
-</view>
-<view class="datas">
-<view class="itemss">
-<image src="../../images/ll.png" class="dimg"/>
-浏览数
-</view>
-<view class="itemss">
-<image src="../../images/pl.png" class="dimg"/>
-评论数
-</view>
-<view class="itemss">
-<image src="../../images/dz.png" class="dimg"/>
-点赞数
-</view>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
-    </view>
-  </t-cell>
-</view>
-<view class="datas">
-<view class="itemss">
-<image src="../../images/ll.png" class="dimg"/>
-浏览数
-</view>
-<view class="itemss">
-<image src="../../images/pl.png" class="dimg"/>
-评论数
-</view>
-<view class="itemss">
-<image src="../../images/dz.png" class="dimg"/>
-点赞数
-</view>
-</view>
+    <t-divider></t-divider>
+  </block>
 </view>
