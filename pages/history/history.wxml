@@ -5,7 +5,7 @@
 </view>
 
 <view class="contain" >
-  <block wx:for="{{[1,2,3,4]}}" wx:key="index">
+  <block wx:for="{{[1,2,3,4,5]}}" wx:key="index">
     <view style="background-color: white; " bind:tap="tapToDetail">
       <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
         <view class="avatar" slot="left-icon">
@@ -18,12 +18,12 @@
         <image src="../../images/ll.png" class="dimg"/>
         浏览数
       </view>
-      <view class="itemss">
-        <image src="../../images/pl.png" class="dimg"/>
+      <view class="itemss" >
+        <image src="../../images/c.png" class="dimg"/>
         评论数
       </view>
       <view class="itemss">
-        <image src="../../images/dz.png" class="dimg"/>
+        <image src="../../images/l.png" class="dimg"/>
         点赞数
       </view>
     </view>
