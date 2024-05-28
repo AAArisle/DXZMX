@@ -169,14 +169,9 @@ Page({
             success: res => {
               // 在小程序调试器中查看返回值是否正确
               let article = JSON.parse(res.data.article)
-<<<<<<< HEAD
               article[0].avatar_url = 'http://127.0.0.1:8000/media/'+article[0].avatar_url
               article[0].fields.image = 'http://127.0.0.1:8000/media/'+article[0].fields.image
               console.log(article[0].fields)
-=======
-              console.log(article)
-              article[0].avatar_url = 'http://127.0.0.1:8000/media/'+article[0].avatar_url;
->>>>>>> 757105cdf11d47cef3617ef81ed7dfdbdb8d0c47
               this.setData({
                 article: article
               })
