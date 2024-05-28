@@ -17,7 +17,7 @@ Page({
           success: res => {
             // 在小程序调试器中查看返回值是否正确
             this.setData({
-              "userInfo.avatarUrl": res.data.avatar_url,
+              "userInfo.avatarUrl": 'http://127.0.0.1:8000/media/'+res.data.avatar_url,
               "userInfo.nickName": res.data.nickname,
             })
           }

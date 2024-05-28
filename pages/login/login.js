@@ -23,9 +23,14 @@ Page({
               // 在小程序调试器中查看返回值是否正确
               console.log(res)
               this.setData({
-                "userInfo.avatarUrl": res.data.avatar_url,
+                "userInfo.avatarUrl": 'http://127.0.0.1:8000/media/'+res.data.avatar_url,
                 "userInfo.nickName": res.data.nickname,
                 hasUserInfo: res.data.nickname && res.data.avatar_url && res.data.avatar_url !== defaultAvatarUrl,
+                "userInfo.sex": res.data.sex,
+                "userInfo.email": res.data.email,
+                "userInfo.school": res.data.school,
+                "userInfo.grade": res.data.grade,
+                "userInfo.major": res.data.major,
               })
             }
           })
@@ -66,6 +71,15 @@ Page({
               data: {
                 userInfo: this.data.userInfo
               }
+            })
+            wx.uploadFile({
+              url: 'http://127.0.0.1:8000/api/weixin/data/',
+              filePath: this.data.userInfo.avatarUrl,
+              name: 'avatarUrl',
+              method: 'POST',
+              header: {
+                'Authorization': 'Bearer ' + access
+              },
             })
           }
         })
