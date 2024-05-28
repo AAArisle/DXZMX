@@ -20,11 +20,11 @@
         浏览数
       </view>
       <view class="itemss">
-        <image src="../../images/pl.png" class="dimg"/>
+        <image src="../../images/c.png" class="dimg"/>
         评论数
       </view>
       <view class="itemss">
-        <image src="../../images/dz.png" class="dimg"/>
+        <image src="../../images/l.png" class="dimg"/>
         点赞数
       </view>
     </view>
