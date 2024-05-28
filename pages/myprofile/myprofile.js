@@ -16,7 +16,7 @@ Page({
             },
             success: res => {
               this.setData({
-                "userInfo.avatarUrl": res.data.avatar_url,
+                "userInfo.avatarUrl": 'http://127.0.0.1:8000/media/'+res.data.avatar_url,
                 "userInfo.nickName": res.data.nickname,
                 "userInfo.sex": res.data.sex,
                 "userInfo.email": res.data.email,
@@ -64,6 +64,15 @@ Page({
               data: {
                 userInfo: this.data.userInfo
               }
+            })
+            wx.uploadFile({
+              url: 'http://127.0.0.1:8000/api/weixin/data/',
+              filePath: this.data.userInfo.avatarUrl,
+              name: 'avatarUrl',
+              method: 'POST',
+              header: {
+                'Authorization': 'Bearer ' + access
+              },
             })
           }
         })

@@ -1,2 +1,33 @@
 <!--pages/myshared/myshared.wxml-->
-<text>pages/myshared/myshared.wxml</text>
+<view class="history-search-entry" >
+  <t-search class="search-input" placeholder="" bind:change="searchInHistory" />
+  <t-icon class="edit-img" name="more" size="24" bind:click="Edit" />
+</view>
+
+<view class="contain" >
+  <block wx:for="{{[1,2,3,4]}}" wx:key="index">
+    <view style="background-color: white; " bind:tap="tapToDetail">
+      <t-cell title="暨南大学" description="{{userInfo.daysAgoViewed}}">
+        <view class="news-icon-view" slot="left-icon">
+          <image class="news-icon" src="../../images/大学/暨南大学.png" ></image>
+        </view>
+      </t-cell>
+      <t-cell title="标题" description="点击前往详情界面"></t-cell>
+    </view>
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        浏览数
+      </view>
+      <view class="itemss">
+        <image src="../../images/pl.png" class="dimg"/>
+        评论数
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        点赞数
+      </view>
+    </view>
+    
+  </block>
+</view>

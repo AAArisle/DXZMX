@@ -43,6 +43,10 @@ Page({
               // 在小程序调试器中查看返回值是否正确
               let articles = JSON.parse(res.data.articles)
               console.log(articles)
+              for (var i = 0; i < articles.length; i++)
+              {
+                articles[i].avatar_url = 'http://127.0.0.1:8000/media/'+articles[i].avatar_url;
+              }
               this.setData({
                 article: articles
               })
