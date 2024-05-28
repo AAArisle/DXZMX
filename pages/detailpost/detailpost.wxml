@@ -30,8 +30,8 @@
   </view>
 
   <view class="icons">
-    <image src="../../images/edit.png" class="iimg"/>
-    <image src="../../images/delete.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
+    <image src="../../images/ed.png" class="iimg"/>
+    <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
 
   <view class="tags">
@@ -46,11 +46,11 @@
       <text class="datas_num">{{article[0].fields.total_views}}</text>
     </view>
     <view class="itemss">
-      <image src="../../images/pl.png" class="dimg"/>
+      <image src="../../images/c.png" class="dimg"/>
       <text class="datas_num">{{article[0].fields.commentAmount}}</text>
     </view>
     <view class="itemss">
-      <image src="../../images/dz.png" class="dimg"/>
+      <image src="../../images/l.png" class="dimg"/>
       <text class="datas_num">{{article[0].fields.likes}}</text>
     </view>
   </view>
@@ -71,20 +71,21 @@
     <view class="comment_like">
       <image id="{{index}}" src="{{comments[index].likeIcon}}" class="comment_like_button" bind:tap="onClickLikeComment"/>{{item.fields.likeAmount}}
       <image id="{{index}}" src="{{comments[index].hateIcon}}" class="comment_hate_button" bind:tap="onClickHateComment"/>{{item.fields.hateAmount}}
-      <image id="{{index}}" src="../../images/delete.png" class="comment_delete_button" bind:tap="onClickDeleteComment"/>
+      <image id="{{index}}" src="../../images/del.png" class="comment_delete_button" bind:tap="onClickDeleteComment"/>
     </view>
   </view>
   <view class="blank">
   </view>
-</view>
-
-
-
-<view class="buttons">
-  <textarea class="input" placeholder="对大家发表你的看法吧" bindconfirm="onInput" wx:if="{{showInput}}"/>
-  <view class="bt">
-    <image src="{{markIcon}}" class="btimg3" bind:tap="onClickMark"/>
-    <image src="../../images/pl.png" class="btimg" bind:tap="onClickComment"/>
-    <image src="{{likeIcon}}" class="btimg3" bind:tap="onClickLike"/>
+    <view class="tbar">
+      <view class="buttons">
+      <textarea class="input" placeholder="对大家发表你的看法吧" bindconfirm="onInput" wx:if="{{showInput}}"/>
+      <view class="bt">
+        <image src="{{markIcon}}" class="btimg3" bind:tap="onClickMark"/>
+        <image src="../../images/pl.png" class="btimg" bind:tap="onClickComment"/>
+        <image src="{{likeIcon}}" class="btimg3" bind:tap="onClickLike"/>
+      </view>
+    </view>
   </view>
 </view>
+
+
