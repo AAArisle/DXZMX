@@ -1,6 +1,6 @@
 <!--pages/mylikes/mylikes.wxml-->
 <view class="history-search-entry" >
-  <t-search class="search-input" placeholder="" bind:change="searchInHistory" />
+  <t-search class="search-input" placeholder="" bind:change="searchInMyLike" />
   <t-icon class="edit-img" name="more" size="24" bind:click="Edit" />
 </view>
 

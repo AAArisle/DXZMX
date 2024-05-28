@@ -1,0 +1,13 @@
+<!--components/pop_up.wxml-->
+<view class="popup-mask" hidden="{{!showPopup}}"></view>
+<view class="popup-window" hidden="{{!showPopup}}">
+  <view class="popup-body">
+    <view class="popup-message">
+      <text>{{text}}</text>
+    </view>
+    <view class="popup-buttons">
+      <button class="popup-button confirm-btn" bindtap="confirm">确认</button>
+      <button class="popup-button cancel-btn" bindtap="cancel">取消</button>
+    </view>
+  </view>
+</view>

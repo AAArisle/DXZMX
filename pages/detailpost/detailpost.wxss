@@ -7,103 +7,90 @@ page{
   background-color:#ffffff;
 }
 
-.btimg3{
-  width: 45px;
-  height: 45px;
-  margin: 0 30px; 
-  position: relative;
-  top: 10px;
-}
-.btimg{
-  width: 50px;
+.schoolLogo{
   height: 50px;
-  margin: 0 30px;
-  position: relative;
-  top: 10px;
+  width: 50px;
+  margin-top: 5px;
+  margin-right: 5px;
 }
-.bt{
+.uschool{
   width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 20px;
-  border-top:1px solid black ;
-}
-.tbsimg{
-  width: 20px;
+  font-size: 15px;
   height: 20px;
-  position: relative;
-  top: 3px;
-  transform: rotate(0.5turn);
+  color: rgb(146, 146, 146);
 }
-.tbimg{
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 3px;
-}
-.rtr{
-  color: rgb(192, 192, 192);
-}
-.rc{
-  width: 90%;
-}
-.rtl{
-  width: 50%;
-}
-.rt{
+.uname{
   width: 100%;
+  height: 25px;
+  display: block;
+  margin-top: 7px;
+}
+.userinfo{
+  width: 240px;
+  height: 50px;
+}
+.userIcon{
+  width: 40px;
   height: 40px;
+  margin: 10px 10px;
+}
+.head{
+  width: 100vw;
+  height: 50px;
   display: flex;
   justify-content: left;
-  line-height: 40px;
 }
-.rightss{
-  width: calc(100%-40px);
-  margin-left: 30px;
+
+.right{
+  width: 20%;
+  margin-right: 5px;
 }
-.tx{
-  width: 40px;
-  height: 40px;
-  position: relative;
-  border-radius: 50%;
-}
-.leftss{
-  width: 40px;
-  height: 100%;
-  margin-top: 10px;
-}
-.posts{
-  width: 90%;
-  margin-left: 5%;
+.left{
+  width: 80%;
+  line-height: 25px;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size:17px;
+  font-weight: 800;
 }
 .post{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.topi{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  left: 20px;
+}
+
+.body{
   width: 90%;
   margin-left: 5%;
+  min-width: 300px;
+  margin-bottom: 10px;
 }
-.itemss{
+
+.iiimg{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+.iimg{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+.icons{
   width: 100%;
-  margin-left: 8%;
-  margin-right: 8%;
-}
-.dimg{
-  width: 24px;
-  height: 24px;
-  position: relative;
-  top: 6px;
-}
-.datas{
-  width: 100%;
-  margin-left: 0%;
+  height: 40px;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  height: 35px;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
-  background-color: #ffffff;
+  margin-left: 600rpx;  
 }
+
 .item{
   width: 60px;
   height: 30px;
@@ -120,87 +107,136 @@ page{
   justify-content: center;
   margin-top: 10px;
 }
-.iiimg{
-  width: 30px;
-  height: 30px;
-  margin-top: 5px;
-  position: relative;
-  left: 300px;
-}
-.iimg{
-  width: 30px;
-  height: 30px;
-  margin-top: 5px;
-  position: relative;
-  left: 290px;
-}
-.icons{
+
+
+.itemss{
   width: 100%;
-  height: 40px;
+  margin-left: 8%;
+  margin-right: 8%;
   display: flex;
-  justify-content: right;
 }
-.content{
+.dimg{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+}
+.datas_num{
+  position: relative;
+  top: 7px;
+}
+.datas{
+  width: 100%;
+  margin-left: 0%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 35px;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  background-color: #ffffff;
+}
+
+.no_comment_notice{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  color: gray;
+}
+.comment{
   width: 90%;
   margin-left: 5%;
-  min-width: 300px;
 }
-.topi{
-  width: 30px;
-  height: 30px;
+.user{
+  display: flex;
+  width: 100%;
+}
+.avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: -10px;
+}
+.nick_name{
+  width: 60%;
+  line-height: 40px;
+  margin-left: 5px;
+  font-size:40rpx;
+}
+.comment_date{
+  color: rgb(192, 192, 192);
+  line-height: 40px;
+  margin-right: 10rpx;
+}
+.comment_body{
+  width: 90%;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.comment_like{
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.comment_like_button{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+}
+.comment_hate_button{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+  transform: rotate(0.5turn);
+  margin-left: 10px;
+}
+.comment_delete_button{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+  margin-left: 350rpx;
+}
+
+.blank{
+  height: 70px;
+}
+
+.buttons{
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+}
+.input{
+  width: 100%;
+  border:1px solid gray ;
+  background-color:#eeeeee;
+}
+.btimg3{
+  width: 45px;
+  height: 45px;
+  margin: 0 30px; 
   position: relative;
   top: 5px;
-  left: 20px;
 }
-.right{
-  width: 20%;
-}
-.left{
-  width: 80%;
-  line-height: 40px;
-  margin-left: 20px;
-  font-size:17px;
-  font-weight: 800;
-}
-.post{
-  width: 100vw;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-}
-.schoolLogo{
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
-  background-color: rgb(129, 128, 128);
-  text-align: center;
-  border-radius: 50%;
-  margin-top: 5px;
-}
-.uschool{
-  width: 100%;
-  font-size: 15px;
-  height: 20px;
-  color: rgb(146, 146, 146);
-}
-.uname{
-  width: 100%;
-  height: 20px;
-  display: block;
-  margin-top: 5px;
-}
-.userinfo{
-  width: 240px;
+.btimg{
+  width: 50px;
   height: 50px;
+  margin: 0 30px;
+  position: relative;
+  top: 10px;
 }
-.userIcon{
-  width: 30px;
-  height: 30px;
-  margin: 10px 20px;
+.bt{
+  height: 70px;
+  border-top:1px solid black ;
+  background-color:#ffffff;
 }
-.head{
-  width: 100vw;
-  height: 50px;
-  display: flex;
-  justify-content: left;
-}
+
+
+
+

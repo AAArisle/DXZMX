@@ -10,7 +10,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    news: [{
+      initiator_id: 1,
+      name: "暨南大学",
+      icon: "../../images/大学/暨南大学.png",
+      haveUnread: true,
+      num: 1,
+      date: "2024-5-20",
+    },
+    {
+      initiator_id: 0,
+      name: "系统通知",
+      icon: "../../images/系统通知.png",
+      haveUnread: false,
+      num: 1,
+      date: "2024-5-20",
+    }]
   },
 
   /**

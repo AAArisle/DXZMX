@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "pop_up": "../../components/pop_up",
     "t-divider": "tdesign-miniprogram/divider/divider"
   }
 }

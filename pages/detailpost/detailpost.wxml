@@ -3,16 +3,16 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 
+<pop_up showPopup="{{popUp.show}}" text="{{popUp.text}}" bind:confirm="{{popUp.confirm}}"></pop_up>
+
 <view class="background">
   <view class="head">
     <image src="{{article[0].avatar_url}}" class="userIcon"/>
     <view class="userinfo">
       <text class="uname">{{article[0].fields.author}}</text>
-      <text class="uschool">大学名称 | {{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
+      <text class="uschool">{{school_name}} | {{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
     </view>
-    <view class="schoolLogo">
-      校徽
-    </view>
+    <image src="{{school_logo}}" class="schoolLogo" mode="aspectFit"></image>
   </view>
 
   <view class="post">
@@ -20,17 +20,18 @@
       {{article[0].fields.title}}
     </view>
     <view class="right">
-      <image src="../../images/top.png" class="topi"/>
+      <image src="{{topIcon}}" class="topi" bind:tap="onClickTop"/>
     </view>
   </view>
 
   <view class="content">
-    <text>{{article[0].fields.body}}</text>
+    <view class="body">{{article[0].fields.body}}</view>
+    <image class="image" mode="aspectFit" wx:if="{{article[0].fields.image!='http://127.0.0.1:8000/media/'}}" src="{{article[0].fields.image}}"></image>
   </view>
 
   <view class="icons">
     <image src="../../images/edit.png" class="iimg"/>
-    <image src="../../images/delete.png" class="iiimg"/>
+    <image src="../../images/delete.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
 
   <view class="tags">
@@ -42,45 +43,48 @@
   <view class="datas">
     <view class="itemss">
       <image src="../../images/ll.png" class="dimg"/>
-      {{article[0].fields.total_views}}
+      <text class="datas_num">{{article[0].fields.total_views}}</text>
     </view>
     <view class="itemss">
       <image src="../../images/pl.png" class="dimg"/>
-      评论数
+      <text class="datas_num">{{article[0].fields.commentAmount}}</text>
     </view>
     <view class="itemss">
       <image src="../../images/dz.png" class="dimg"/>
-      {{article[0].fields.likes}}
+      <text class="datas_num">{{article[0].fields.likes}}</text>
     </view>
   </view>
 </view>
 <t-divider></t-divider>
 
-<view class="post">
-  <view class="leftss">
-    <image src="../../images/tx.png" class="tx"/>
+<view class="comments">
+  <view class="no_comment_notice" wx:if="{{comments.length==0}}">还没有人评论</view>
+  <view class="comment" wx:for="{{comments}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+    <view class="user">
+        <image src="{{item.userInfo.avatarUrl}}" class="avatar"/>
+        <text class="nick_name">{{item.userInfo.nickName}}</text>
+        <text class="comment_date">{{item.fields.date}}</text>
+    </view>
+    <view class="comment_body">
+      {{item.fields.body}}
+    </view>
+    <view class="comment_like">
+      <image id="{{index}}" src="{{comments[index].likeIcon}}" class="comment_like_button" bind:tap="onClickLikeComment"/>{{item.fields.likeAmount}}
+      <image id="{{index}}" src="{{comments[index].hateIcon}}" class="comment_hate_button" bind:tap="onClickHateComment"/>{{item.fields.hateAmount}}
+      <image id="{{index}}" src="../../images/delete.png" class="comment_delete_button" bind:tap="onClickDeleteComment"/>
+    </view>
   </view>
-  <view class="rightss">
-    <view class="rt">
-      <view class="rtl">
-      Han Sole
-      </view>
-      <view class="rtr">
-        几秒前
-      </view>
-    </view>
-    <view class="rc">
-      We aupply a series of design principles,practical patterns and high quailty design resources (Sketch and Axure)
-    </view>
-    <view class="tb">
-      <image src="../../images/dz.png" class="tbimg"/>0
-      <image src="../../images/dz.png" class="tbsimg"/>0
-      <image src="../../images/delete.png" class="tbimg"/>
-    </view>
+  <view class="blank">
   </view>
 </view>
-<view class="bt">
-  <image src="../../images/s.png" class="btimg3"/>
-  <image src="../../images/pl.png" class="btimg"/>
-  <image src="../../images/dz.png" class="btimg3"/>
+
+
+
+<view class="buttons">
+  <textarea class="input" placeholder="对大家发表你的看法吧" bindconfirm="onInput" wx:if="{{showInput}}"/>
+  <view class="bt">
+    <image src="{{markIcon}}" class="btimg3" bind:tap="onClickMark"/>
+    <image src="../../images/pl.png" class="btimg" bind:tap="onClickComment"/>
+    <image src="{{likeIcon}}" class="btimg3" bind:tap="onClickLike"/>
+  </view>
 </view>

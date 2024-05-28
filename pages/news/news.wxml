@@ -1,18 +1,11 @@
 <!--pages/news/news.wxml-->
-<t-cell class="news-box" hover arrow bind:tap="tapToMessages" title="暨南大学" >
-  <view class="news-icon-view" slot="left-icon">
-    <image class="news-icon" src="../../images/大学/暨南大学.png" ></image>
-  </view>
-  <view class="news-description-view" slot="description">
-    <text class="news-description" space="nbsp">1条未读通知    2024-5-20</text>
-  </view>
-</t-cell>
-
-<t-cell class="news-box" hover arrow bind:tap="tapToMessages" title="系统通知" >
-  <view class="news-icon-view" slot="left-icon">
-    <image class="news-icon" src="../../images/系统通知.png" ></image>
-  </view>
-  <view class="news-description-view" slot="description">
-    <text class="news-description" space="nbsp"></text>
-  </view>
-</t-cell>
+<view wx:for="{{news}}" wx:for-item="item" wx:key="initiator_id">
+  <t-cell class="news-box" hover arrow bind:tap="tapToMessages" title="{{item.name}}">
+    <view class="news-icon-view" slot="left-icon">
+      <image class="news-icon" src="{{item.icon}}" ></image>
+    </view>
+    <view class="news-description-view" slot="description">
+      <text class="news-description" space="nbsp" wx:if="{{item.haveUnread}}">{{item.num}}条未读通知    {{item.date}}</text>
+    </view>
+  </t-cell>
+</view>
