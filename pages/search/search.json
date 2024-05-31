@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "t-search": "/miniprogram_npm/tdesign-miniprogram/search/search"
+    "t-icon": "tdesign-miniprogram/icon/icon"
   },
   "navigationBarTitleText": "搜索"
 }

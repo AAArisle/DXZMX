@@ -219,8 +219,6 @@ Page({
               // 在小程序调试器中查看返回值是否正确
               let article = JSON.parse(res.data.article)
               console.log(article[0].fields)
-              //article[0].avatar_url = 'http://127.0.0.1:8000/media/'+article[0].avatar_url
-              //article[0].fields.image = 'http://127.0.0.1:8000/media/'+article[0].fields.image
               this.setData({
                 article: article
               })

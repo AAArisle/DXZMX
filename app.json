@@ -14,7 +14,8 @@
     "pages/history/history",
     "pages/myshared/myshared",
     "pages/myprofile/myprofile",
-    "pages/updatepost/updatepost"
+    "pages/updatepost/updatepost",
+    "pages/searchres/searchres"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,0 +1,50 @@
+/* pages/top.wxss */
+page{
+  background-color:#ededed;
+}
+
+.group {
+  display: flex;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+}
+
+.group-avatar {
+  margin-right: 24rpx;
+}
+
+.group-content {
+  width: 566rpx;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+}
+
+.datas{
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  /* border-top: 1px solid #f3f3f3; */
+  /* border-bottom: 1px solid #f3f3f3; */
+  background-color: #ffffff;
+}
+.itemss{
+  width: 100%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+.dimg{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+}
