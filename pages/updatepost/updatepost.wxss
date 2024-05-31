@@ -1,0 +1,43 @@
+/* pages/addpost/addpost.wxss */
+.btn{
+  width: 40%;
+  height: 100%;
+  line-height: 40px;
+  margin-top: 15px;
+}
+.pickerss{
+  width: 60%;
+}
+.pickers{
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon{
+  width: 30px;
+  height: 30px;
+}
+.pname{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.upload{
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  margin-top: 10px;
+}
+.content{
+  padding: 10px 0;
+  min-height: 175px;
+  min-width: 440px;
+}
+.title{
+  padding: 20px;
+  height: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}

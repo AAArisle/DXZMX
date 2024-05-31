@@ -30,7 +30,7 @@
   </view>
 
   <view class="icons">
-    <image src="../../images/ed.png" class="iimg"/>
+    <image src="../../images/ed.png" class="iimg" bind:tap="tapToEdit"/>
     <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
 

@@ -16,7 +16,7 @@ Page({
             },
             success: res => {
               this.setData({
-                "userInfo.avatarUrl": 'http://127.0.0.1:8000/media/'+res.data.avatar_url,
+                "userInfo.avatarUrl": res.data.avatar_url,
                 "userInfo.nickName": res.data.nickname,
                 "userInfo.sex": res.data.sex,
                 "userInfo.email": res.data.email,

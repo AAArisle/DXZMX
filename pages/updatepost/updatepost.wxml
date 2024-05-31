@@ -1,0 +1,56 @@
+<!--pages/addpost/addpost.wxml-->
+<form catchsubmit="formSubmit" catchreset="formReset">
+  <input type="text" placeholder="经验标题" class="title" value="{{article.title}}" name="title"/>
+  <view style="border-bottom: 1px solid #eee;padding: 20px;">
+    <textarea placeholder="经验正文详细内容" class="content" maxlength="-1" auto-height value="{{article.body}}" name="body"></textarea>
+    <image src="{{article.mypath}}" class="upload" bind:tap="upload" />
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <!-- <image src="../../images/school.png" class="icon" /> -->
+      <t-icon name="temple" size="32" color="#0052d9"/>
+      <view style="margin-left: 10px;">
+        学校名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{school}}"  class="pickerss" bindchange="schoolChange">
+      <view class="picker">
+        {{schooldata}}
+        <input wx:if="{{schooldata != '请选择'}}" style="display:none" value="{{schooldata}}" name="school"/>
+      </view>
+    </picker>
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <!-- <image src="../../images/zhuanye.png" class="icon" /> -->
+      <t-icon name="education" size="32" color="#0052d9"/>
+      <view style="margin-left: 10px;">
+        专业名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{zhuanye}}"  class="pickerss" bindchange="zhuanyeChange">
+      <view class="picker">
+        {{zhuanyedata}}
+        <input style="display:none" value="{{zhuanyedata}}" name="major"/>
+      </view>
+    </picker>
+  </view>
+  <view class="pickers">
+    <view class="pname">
+      <!-- <image src="../../images/class.png" class="icon" /> -->
+      <t-icon name="certificate-1" size="32" color="#0052d9"/>
+      <view style="margin-left: 10px;">
+        课程名称
+      </view>
+    </view>
+    <picker mode="selector" range="{{class}}"  class="pickerss" bindchange="classChange">
+      <view class="picker">
+        {{classdata}}
+      </view>
+    </picker>
+  </view>
+  <view style="display: flex;flex-wrap: wrap;">
+    <button formType="reset" type="warn" class="btn">重置</button>
+    <button formType="submit" type="primary" class="btn">更新经验</button>
+  </view>
+</form>

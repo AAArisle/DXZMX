@@ -22,7 +22,7 @@ Page({
             success: res => {
               // 在小程序调试器中查看返回值是否正确
               console.log(res)
-              const url = res.data.avatar_url.slice(8,13) == 'mmbiz' ? defaultAvatarUrl : 'http://127.0.0.1:8000/media/'+res.data.avatar_url
+              const url = res.data.avatar_url.slice(8,13) == 'mmbiz' ? defaultAvatarUrl : res.data.avatar_url
               this.setData({
                 "userInfo.avatarUrl": url,
                 "userInfo.nickName": res.data.nickname,

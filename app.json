@@ -1,7 +1,7 @@
 {
   "//": "pages/login/login",
   "pages": [
-    
+    "pages/login/login",
     "pages/index/index",
     "pages/follow/follow",
     "pages/addpost/addpost",
@@ -13,7 +13,8 @@
     "pages/mylikes/mylikes",
     "pages/history/history",
     "pages/myshared/myshared",
-    "pages/myprofile/myprofile"
+    "pages/myprofile/myprofile",
+    "pages/updatepost/updatepost"
   ],
   "window": {
     "navigationBarTextStyle": "black",

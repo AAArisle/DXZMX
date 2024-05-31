@@ -2,13 +2,6 @@
 const app = getApp()
 
 Page({
-  /**
-   * 页面的初始数据
-   */
-  /*data: {
-    article: []
-  },*/
-
   data: {
     top: false,
     topIcon: "../../images/top.png",
@@ -32,7 +25,7 @@ Page({
         author: "作者",
         title: "标题",
         updated: "2024-5-29",
-        body: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+        body: "...",
         image: "../../images/tx.png",
         likes: 3,
         commentAmount: 2,
@@ -142,8 +135,38 @@ Page({
     })
   },
   deleteArticle(){
-    wx.switchTab({
-      url: '../index/index',
+    app.login(() => {
+      // 用token获取用户数据
+      console.log('login：从django获得data中')
+      wx.getStorage({
+        key: 'access',
+        success: (result) => {
+          const access = result.data;
+          console.log('login：token获得成功');
+          console.log(access);
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/article/article-delete/'+this.data.id+'/',
+            header: {
+              // 注意字符串 'Bearer ' 尾部有个空格！
+              'Authorization': 'Bearer ' + access
+            },
+            success: () => {
+              wx.showToast({
+                title: '删除经验成功！',
+                icon: 'success',
+              });
+              // 延迟一秒后跳转回原页面
+              setTimeout(function(){wx.navigateBack({})}, 1000)
+            }
+          })
+        }
+      })
+    })
+  },
+
+  tapToEdit() {
+    wx.navigateTo({
+      url: '../updatepost/updatepost?id='+this.data.id,
     })
   },
 
@@ -151,7 +174,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let id = options.id
+    this.setData({id:options.id})
     app.login(() => {
       // 用token获取用户数据
       wx.getStorage({
@@ -160,7 +183,7 @@ Page({
           const access = result.data;
           console.log('detailpost：token获得成功');
           wx.request({
-            url: 'http://127.0.0.1:8000/api/article/article-detail/'+id+'/',
+            url: 'http://127.0.0.1:8000/api/article/article-detail/'+this.data.id+'/',
             method: 'GET',
             header: {
               // 注意字符串 'Bearer ' 尾部有个空格！
@@ -169,8 +192,6 @@ Page({
             success: res => {
               // 在小程序调试器中查看返回值是否正确
               let article = JSON.parse(res.data.article)
-              article[0].avatar_url = 'http://127.0.0.1:8000/media/'+article[0].avatar_url
-              article[0].fields.image = 'http://127.0.0.1:8000/media/'+article[0].fields.image
               console.log(article[0].fields)
               this.setData({
                 article: article
