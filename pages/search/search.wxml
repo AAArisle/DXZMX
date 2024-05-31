@@ -1,2 +1,49 @@
-<!--pages/search/search.wxml-->
-<t-search></t-search>
+<!--pages/carType/search/search.wxml-->
+
+<!-- 搜索栏 -->
+<view class="search-wrap">
+  <input class="search" bindinput="search" value='{{inputValue}}'></input>
+  <image src="/images/search.png" class="searchImg"></image>
+  <image src="/images/cancel.png" class="closeImg" bindtap='close' wx:if="{{closeImg}}"></image>
+  <view class="cancel" bindtap='cancel'>取消</view>
+</view>
+<!-- 搜索栏 -->
+<view class="search-wrap">
+  <input class="search" bindinput="search" value='{{inputValue}}'></input>
+  <image src="/images/search.png" class="searchImg"></image>
+  <image src="/images/cancel.png" class="closeImg" bindtap='close' wx:if="{{closeImg}}"></image>
+  <view class="cancel" bindtap='cancel'>取消</view>
+</view>
+<!-- 搜索栏 -->
+<view class="search-wrap">
+  <input class="search" bindinput="search" value='{{inputValue}}'></input>
+  <image src="/images/search.png" class="searchImg"></image>
+  <image src="/images/cancel.png" class="closeImg" bindtap='close' wx:if="{{closeImg}}"></image>
+  <view class="cancel" bindtap='cancel'>取消</view>
+</view>
+
+<!-- 搜索列表 -->
+<view class="search-content">
+<!-- 历史搜索 -->
+  <view class="historywrap" wx:if="{{history}}">
+    <view class="historyTitle">
+      <view>历史搜索</view>
+      <image src="/images/cancel.png" bindtap='cancelHistory'></image>
+    </view>
+    <view class="historyList">
+      <view wx:for="{{historyData}}" bindtap='searchHistory' data-name="{{item}}">{{item}}</view>
+    </view>
+  </view>
+  <!-- 暂无数据组件 -->
+  <noData wx:if="{{noData}}">
+    <view>暂无数据</view>
+  </noData>
+  <!-- 搜索列表 -->
+  <view class="content" wx:for="{{carList}}" wx:key="{{item.id}}">
+  <view class="title">{{item.name}}</view>
+  <view class="carList" wx:for="{{item.models}}" wx:for-item="itemName" wx:key="{{itemName.id}}" bindtap='selectCar' data-name="{{item.name}}">
+    <text style="color:red" data-name="{{item.name}}">{{item.name}}</text>
+    <text data-name="{{item.name}}">{{itemName.name}}</text>
+  </view>
+  </view>
+</view>
