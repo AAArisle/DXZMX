@@ -8,15 +8,16 @@ Page({
     marked: false,
     markIcon:"../../images/s.png",
     showInput: false,
-    liked: false,
+    like: 0,
     likeIcon:"../../images/dz.png",
+    hateIcon:"../../images/dz.png",
     popUp: {
       show: false,
       text: "",
       confirm: "",
       id: 0,
     },
-    
+    userInfo:{},
     school_logo: "../../images/大学/暨南大学.png",
     school_name: "暨南大学",
     article: [{
@@ -83,9 +84,19 @@ Page({
     this.setData({showInput: !this.data.showInput})
   },
   onClickLike(){
+    const statue = this.data.like!=1?1:0
     this.setData({
-      liked: !this.data.liked,
-      likeIcon: this.data.liked?"../../images/dz.png":"../../images/dz2.png",
+      like: statue,
+      likeIcon: statue==0?"../../images/dz.png":"../../images/dz2.png",
+      hateIcon: "../../images/dz.png",
+    })
+  },
+  onClickHate(){
+    const statue = this.data.like!=-1?-1:0
+    this.setData({
+      like: statue,
+      likeIcon: "../../images/dz.png",
+      hateIcon: statue==0?"../../images/dz.png":"../../images/dz2.png",
     })
   },
   onInput(e){
@@ -182,6 +193,21 @@ Page({
         success: (result) => {
           const access = result.data;
           console.log('detailpost：token获得成功');
+          //获取当前用户信息
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/weixin/data/',
+            header: {
+              'Authorization': 'Bearer ' + access
+            },
+            success: res => {
+              const url = res.data.avatar_url.slice(8,13) == 'mmbiz' ? defaultAvatarUrl : res.data.avatar_url
+              this.setData({
+                "userInfo.avatarUrl": url,
+                "userInfo.nickName": res.data.nickname,
+              })
+            }
+          })
+          //获取经验详情
           wx.request({
             url: 'http://127.0.0.1:8000/api/article/article-detail/'+this.data.id+'/',
             method: 'GET',
@@ -193,6 +219,8 @@ Page({
               // 在小程序调试器中查看返回值是否正确
               let article = JSON.parse(res.data.article)
               console.log(article[0].fields)
+              //article[0].avatar_url = 'http://127.0.0.1:8000/media/'+article[0].avatar_url
+              //article[0].fields.image = 'http://127.0.0.1:8000/media/'+article[0].fields.image
               this.setData({
                 article: article
               })

@@ -29,7 +29,7 @@
     <image class="image" mode="aspectFit" wx:if="{{article[0].fields.image!='http://127.0.0.1:8000/media/'}}" src="{{article[0].fields.image}}"></image>
   </view>
 
-  <view class="icons">
+  <view class="icons" wx:if="{{userInfo.nickName == article[0].fields.author}}">
     <image src="../../images/ed.png" class="iimg" bind:tap="tapToEdit"/>
     <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
@@ -52,6 +52,10 @@
     <view class="itemss">
       <image src="../../images/l.png" class="dimg"/>
       <text class="datas_num">{{article[0].fields.likes}}</text>
+    </view>
+    <view class="itemss">
+      <image src="../../images/l.png" class="dimg2"/>
+      <text class="datas_num">{{article[0].fields.hates}}</text>
     </view>
   </view>
 </view>
@@ -83,6 +87,7 @@
         <image src="{{markIcon}}" class="btimg3" bind:tap="onClickMark"/>
         <image src="../../images/pl.png" class="btimg" bind:tap="onClickComment"/>
         <image src="{{likeIcon}}" class="btimg3" bind:tap="onClickLike"/>
+        <image src="{{hateIcon}}" class="btimg4" bind:tap="onClickHate"/>
       </view>
     </view>
   </view>
