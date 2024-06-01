@@ -11,12 +11,6 @@ Page({
     like: 0,
     likeIcon:"../../images/dz.png",
     hateIcon:"../../images/dz.png",
-    popUp: {
-      show: false,
-      text: "",
-      confirm: "",
-      id: 0,
-    },
     userInfo:{},
     school_logo: "../../images/大学/暨南大学.png",
     school_name: "暨南大学",
@@ -121,29 +115,28 @@ Page({
     })
   },
   onClickDeleteComment(e){
-    this.setData({
-      popUp: {
-        show: true,
-        text: "确认删除评论？",
-        confirm: "deleteComment",
-        id: e.target.id,
-      }      
-    })
+    let that = this;
+    wx.showModal({
+      content:"确认删除评论？",
+      success(res){
+        if(res.confirm) that.deleteComment(e.target.id)
+      },
+    });
   },
-  deleteComment(e){
-    this.data.comments.splice(this.data.popUp.id, 1)
+  deleteComment(id){
+    this.data.comments.splice(id, 1)
     this.setData({
       comments: this.data.comments,
     })
   },
   onClickDeleteArticle(){
-    this.setData({
-      popUp: {
-        show: true,
-        text: "确认删除文章？",
-        confirm: "deleteArticle"
-      }      
-    })
+    let that = this;
+    wx.showModal({
+      content:"确认删除经验？",
+      success(res){
+        if(res.confirm) that.deleteArticle()
+      },
+    });
   },
   deleteArticle(){
     app.login(() => {

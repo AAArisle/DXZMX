@@ -3,7 +3,7 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 
-<pop_up showPopup="{{popUp.show}}" text="{{popUp.text}}" bind:confirm="{{popUp.confirm}}"></pop_up>
+<!--<pop_up showPopup="{{popUp.show}}" text="{{popUp.text}}" bind:confirm="{{popUp.confirm}}"></pop_up>-->
 
 <view class="background">
   <view class="head">
