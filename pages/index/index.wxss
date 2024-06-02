@@ -30,8 +30,11 @@ page{
 }
 
 .datas{
+  width: 100%;
+  margin-left: 5%;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   height: 35px;
   /* border-top: 1px solid #f3f3f3; */
   /* border-bottom: 1px solid #f3f3f3; */
@@ -39,12 +42,25 @@ page{
 }
 .itemss{
   width: 100%;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
 }
 .dimg{
   width: 24px;
   height: 24px;
   position: relative;
   top: 6px;
+}
+.dimg2{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+  transform: scaleY(-1);
+}
+.datas_num{
+  position: relative;
+  margin-left: 3px;
+  top: 7px;
 }

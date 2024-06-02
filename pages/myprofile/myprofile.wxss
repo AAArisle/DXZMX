@@ -14,27 +14,25 @@
   height: 300rpx;
 }
 
-.nickname-wrapper {
+.wrapper {
   display: flex;
   width: 100%;
-  padding: 32rpx;
+  padding: 30rpx;
   box-sizing: border-box;
   border-top: .5px solid rgba(0, 0, 0, 0.1);
   border-bottom: .5px solid rgba(0, 0, 0, 0.1);
   color: black;
 }
-
-.nickname-label {
+.wrapper-label {
   width: 200rpx;
 }
-
-.nickname-input {
+.wrapper-input {
   flex: 1;
 }
 
 .user_message_title{
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 2fr 5fr 1fr 1fr;
   height: 100rpx;
   background-color:rgb(200, 200, 200)
 }

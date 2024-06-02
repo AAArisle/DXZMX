@@ -2,20 +2,57 @@
 <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
 </button>
+
 <view class="user_message">
   <view class="user_message_title">
     <view></view>
     <text class="user_message_text">用户信息</text>
-    <t-icon class="user_message_edit" name="edit-2" size="50rpx" data-name="{{item}}" bind:click="onClickUserMessageEdit" />
+    <view wx:if="{{!editing}}"></view>
+    <t-icon wx:if="{{!editing}}" class="user_message_edit" name="edit-2" size="60rpx" bind:click="onClickUserMessageEdit" />
+    <t-icon wx:if="{{editing}}" class="user_message_edit" name="check" size="60rpx" bind:click="onClickUserMessageCheck" />
+    <t-icon wx:if="{{editing}}" class="user_message_edit" name="close" size="60rpx" bind:click="onClickUserMessageClose" />
   </view>
-  <view class="nickname-wrapper">
-    <text class="nickname-label">昵称</text>
-    <input type="nickname" class="nickname-input" placeholder="请输入昵称" value="{{userInfo.nickName}}" bind:change="onNickNameInput" />
+
+  <view class="wrapper">
+    <text class="wrapper-label">昵称</text>
+    <input disabled="{{!editing}}" type="nickname" class="wrapper-input" placeholder="请输入昵称" value="{{newUserInfo.nickName}}" bind:change="onNickNameInput" />
   </view>
-  <picker mode="selector" range="{{sexRange}}"  class="pickerss" bindchange="sexChange">
+  <view class="wrapper">
+    <text class="wrapper-label">性别</text>
+    <picker disabled="{{!editing}}" mode="selector" range="{{sexRange}}" class="wrapper-input" bindchange="sexChange">
       <view class="picker">
-        {{userInfo.sex}}
+        {{newUserInfo.sex}}
       </view>
     </picker>
+  </view>
+  <view class="wrapper">
+    <text class="wrapper-label">邮箱</text>
+    <input disabled="{{!editing}}" type="text" class="wrapper-input" placeholder="请输入邮箱" value="{{newUserInfo.email}}" bind:change="onEmailInput" />
+  </view>
+  <view class="wrapper">
+    <text class="wrapper-label">学校</text>
+    <picker disabled="{{!editing}}" mode="selector" range="{{schoolRange}}" class="wrapper-input" bindchange="schoolChange">
+      <view class="picker">
+        {{newUserInfo.school}}
+      </view>
+    </picker>
+  </view>
+  <view class="wrapper">
+    <text class="wrapper-label">年级</text>
+    <picker disabled="{{!editing}}" mode="selector" range="{{gradeRange}}" class="wrapper-input" bindchange="gradeChange">
+      <view class="picker">
+        {{newUserInfo.grade}}
+      </view>
+    </picker>
+  </view>
+  <view class="wrapper">
+    <text class="wrapper-label">专业</text>
+    <picker disabled="{{!editing}}" mode="selector" range="{{majorRange}}" class="wrapper-input" bindchange="majorChange">
+      <view class="picker">
+        {{newUserInfo.major}}
+      </view>
+    </picker>
+  </view>
 </view>
-<button bind:tap="uploadData">保存</button>
+
+<!--<button bind:tap="uploadData">保存</button>-->

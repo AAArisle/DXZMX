@@ -7,10 +7,10 @@ Page({
       url: '../detailpost/detailpost',
     })
   },
-  searchInHistory(e) {
+  search(e) {
     console.log(e)
   },
-  Edit(e) {
+  edit(e) {
     console.log(e)
   },
 

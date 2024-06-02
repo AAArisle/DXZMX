@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<t-cell class="userinfo" hover bind:tap="tapToMyProfile">
+<t-cell class="userinfo" hover arrow hover bind:tap="tapToMyProfile">
   <view class="avatar" slot="left-icon">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
   </view>

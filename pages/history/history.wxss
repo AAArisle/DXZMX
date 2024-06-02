@@ -36,7 +36,7 @@ page{
   width: 100%;
 }
 
-.history-search-entry {
+.search-entry {
   display: grid;
   grid-template-columns: 8fr 1fr;
   width: 100%;

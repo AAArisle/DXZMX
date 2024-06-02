@@ -6,10 +6,10 @@ Page({
       url: '../detailpost/detailpost',
     })
   },
-  searchInMyLike(e) {
+  search(e) {
     console.log(e)
   },
-  Edit(e) {
+  edit(e) {
     console.log(e)
   },
 

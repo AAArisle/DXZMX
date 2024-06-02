@@ -12,15 +12,19 @@
     <view class="datas">
       <view class="itemss">
         <image src="../../images/ll.png" class="dimg"/>
-        {{item.fields.total_views}}
+        <text class="datas_num">{{item.fields.total_views}}</text>
       </view>
       <view class="itemss">
         <image src="../../images/pl.png" class="dimg"/>
-        评论数
+        <text class="datas_num">数</text>
       </view>
       <view class="itemss">
         <image src="../../images/dz.png" class="dimg"/>
-        {{item.fields.likes}}
+        <text class="datas_num">{{item.fields.likes}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg2"/>
+        <text class="datas_num">数</text>
       </view>
     </view>
   </view>

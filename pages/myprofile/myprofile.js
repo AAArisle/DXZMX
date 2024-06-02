@@ -23,6 +23,14 @@ Page({
                 "userInfo.school": res.data.school,
                 "userInfo.grade": res.data.grade,
                 "userInfo.major": res.data.major,
+
+                "newUserInfo.avatarUrl": res.data.avatar_url,
+                "newUserInfo.nickName": res.data.nickname,
+                "newUserInfo.sex": res.data.sex,
+                "newUserInfo.email": res.data.email,
+                "newUserInfo.school": res.data.school,
+                "newUserInfo.grade": res.data.grade,
+                "newUserInfo.major": res.data.major,
               })
             }
           })
@@ -38,16 +46,25 @@ Page({
       hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
     })
   },
-  onNickNameInput(e) {
-    const nickName = e.detail.value
-    const { avatarUrl } = this.data.userInfo
-    if(nickName != ""){
-      this.setData({
-        "userInfo.nickName": nickName,
-        hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
-      })
-    }
+  onClickUserMessageEdit(){
+    this.setData({
+      editing: true,
+    })
   },
+  onClickUserMessageCheck(){
+    this.setData({
+      editing: false,
+      userInfo: {...this.data.newUserInfo},
+    })
+    this.uploadData()
+  },
+  onClickUserMessageClose(){
+    this.setData({
+      editing: false,
+      newUserInfo: {...this.data.userInfo},
+    })
+  },
+  
   uploadData() {
     if (this.data.hasUserInfo){
       app.login(() => {
@@ -80,9 +97,39 @@ Page({
     }
   },
 
+  onNickNameInput(e) {
+    const nickName = e.detail.value
+    const { avatarUrl } = this.data.userInfo
+    if(nickName != ""){
+      this.setData({
+        "newUserInfo.nickName": nickName,
+        hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
+      })
+    }
+  },
+  onEmailInput(e) {
+    this.setData({
+      "newUserInfo.email": e.detail.value,
+    })
+  },
   sexChange:function(e){
     this.setData({
-      "userInfo.sex" : this.data.sexRange[e.detail.value]
+      "newUserInfo.sex" : this.data.sexRange[e.detail.value]
+    })
+  },
+  schoolChange:function(e){
+    this.setData({
+      "newUserInfo.school" : this.data.schoolRange[e.detail.value]
+    })
+  },
+  gradeChange:function(e){
+    this.setData({
+      "newUserInfo.grade" : this.data.gradeRange[e.detail.value]
+    })
+  },
+  majorChange:function(e){
+    this.setData({
+      "newUserInfo.major" : this.data.majorRange[e.detail.value]
     })
   },
 
@@ -90,7 +137,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    editing: false,
     userInfo: {
+      avatarUrl: defaultAvatarUrl,
+      nickName: '',
+      sex: '未知',
+      email: '',
+      school: '',
+      grade: '',
+      major: '',
+    },
+    newUserInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
       sex: '未知',

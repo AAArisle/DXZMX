@@ -12,3 +12,6 @@
   width: 128rpx;
   height: 128rpx;
 }
+.userinfo{
+  border-bottom: 2px solid #eeeeee;
+}
