@@ -29,7 +29,7 @@
     <image class="image" mode="aspectFit" wx:if="{{article[0].fields.image!='http://127.0.0.1:8000/media/'}}" src="{{article[0].fields.image}}"></image>
   </view>
 
-  <view class="icons" wx:if="{{userInfo.nickName == article[0].fields.author}}">
+  <view class="icons" wx:if="{{userInfo.avatarUrl == article[0].avatar_url}}">
     <image src="../../images/ed.png" class="iimg" bind:tap="tapToEdit"/>
     <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>

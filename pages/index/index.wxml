@@ -24,7 +24,7 @@
       </view>
       <view class="itemss">
         <image src="../../images/dz.png" class="dimg2"/>
-        <text class="datas_num">数</text>
+        <text class="datas_num">{{item.fields.hates}}</text>
       </view>
     </view>
   </view>

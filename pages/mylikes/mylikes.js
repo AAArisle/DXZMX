@@ -1,16 +1,12 @@
 // pages/mylikes/mylikes.js
+const app = getApp()
+
 Page({
-  tapToDetail()
-  {
+  tapToDetail(e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../detailpost/detailpost',
+      url: '../detailpost/detailpost?id='+id,
     })
-  },
-  search(e) {
-    console.log(e)
-  },
-  edit(e) {
-    console.log(e)
   },
 
   /**
@@ -20,59 +16,36 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    app.login(() => {
+      // 用token获取用户数据
+      wx.getStorage({
+        key: 'access',
+        success: (result) => {
+          const access = result.data;
+          console.log('index：token获得成功');
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/weixin/about/',
+            method: 'GET',
+            header: {
+              // 注意字符串 'Bearer ' 尾部有个空格！
+              'Authorization': 'Bearer ' + access
+            },
+            success: res => {
+              // 在小程序调试器中查看返回值是否正确
+              let articles = JSON.parse(res.data.articles)
+              console.log(articles)
+              this.setData({
+                article: articles
+              })
+            }
+          })
+        }
+      });
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

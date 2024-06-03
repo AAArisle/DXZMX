@@ -15,6 +15,7 @@ Page({
               'Authorization': 'Bearer ' + access
             },
             success: res => {
+              console.log(res);
               this.setData({
                 "userInfo.avatarUrl": res.data.avatar_url,
                 "userInfo.nickName": res.data.nickname,

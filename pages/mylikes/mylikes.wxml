@@ -1,43 +1,33 @@
 <!--pages/mylikes/mylikes.wxml-->
-<view class="search-entry" >
-  <t-search class="search-input" placeholder="" bind:change="search" />
-  <t-icon class="edit-img" name="more" size="24" bind:click="edit" />
-</view>
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
 
-<view class="contain" >
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
+<view wx:if="{{article.length == 0}}">目前你还没有收藏过经验！</view>
+
+<block wx:for="{{article}}" wx:key="index">
+  <view style="background-color: white; " bind:tap="tapToDetail" data-id="{{item.pk}}">
+    <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}更新">
+      <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+    </t-cell>
+    <t-cell title="{{item.fields.title}}" description="{{tools.sub(item.fields.body,100)}}"/>
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.total_views}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/pl.png" class="dimg"/>
+        <text class="datas_num">数</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.likes}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg2"/>
+        <text class="datas_num">{{item.fields.hates}}</text>
+      </view>
     </view>
-  </t-cell>
-  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
-    </view>
-  </t-cell>
-  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
-    </view>
-  </t-cell>
-  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
-</view>
-<t-divider></t-divider>
-<view style="background-color: white; " bind:tap="tapToDetail">
-  <t-cell title="多行带头像" description="一段很长很长很长的内容文字">
-    <view class="avatar" slot="left-icon">
-      <open-data type="userAvatarUrl" />
-    </view>
-  </t-cell>
-  <t-cell title="多行标题" description="一段很长很长的内容文字，长文本自动换行，该选项的描述是一段很长的内容"/>
-</view>
-</view>
+  </view>
+  <t-divider></t-divider>
+</block>

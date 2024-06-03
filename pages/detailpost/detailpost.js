@@ -73,6 +73,7 @@ Page({
       marked: !this.data.marked,
       markIcon: this.data.marked?"../../images/s.png":"../../images/s2.png",
     })
+    this.updateStarLike()
   },
   onClickComment(){
     this.setData({showInput: !this.data.showInput})
@@ -84,6 +85,7 @@ Page({
       likeIcon: statue==0?"../../images/dz.png":"../../images/dz2.png",
       hateIcon: "../../images/dz.png",
     })
+    this.updateStarLike()
   },
   onClickHate(){
     const statue = this.data.like!=-1?-1:0
@@ -92,6 +94,7 @@ Page({
       likeIcon: "../../images/dz.png",
       hateIcon: statue==0?"../../images/dz.png":"../../images/dz2.png",
     })
+    this.updateStarLike()
   },
   onInput(e){
     
@@ -174,6 +177,38 @@ Page({
     })
   },
 
+  updateStarLike() {
+    app.login(() => {
+      // 用token获取用户数据
+      wx.getStorage({
+        key: 'access',
+        success: (result) => {
+          const access = result.data;
+          console.log('detailpost：token获得成功');
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/weixin/about/',
+            header: {
+              'Authorization': 'Bearer ' + access
+            },
+            method: 'POST',
+            data: {
+              id: this.data.id,
+              like: this.data.like,
+              star: this.data.marked
+            },
+            success: res => {
+              let article = JSON.parse(res.data.article)
+              this.setData({
+                "article[0].fields.likes": article[0].fields.likes,
+                "article[0].fields.hates": article[0].fields.hates,
+              })
+            }
+          })
+        }
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -215,6 +250,39 @@ Page({
               this.setData({
                 article: article
               })
+            }
+          })
+          // 收藏和点赞
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/weixin/about/',
+            header: {
+              'Authorization': 'Bearer ' + access
+            },
+            method: 'POST',
+            data: {
+              id: this.data.id
+            },
+            success: res => {
+              console.log(res);
+              this.setData({
+                like: res.data.like,
+                marked: res.data.star
+              })
+              if (this.data.like == 1) {
+                this.setData({
+                  likeIcon: "../../images/dz2.png"
+                })
+              }
+              else if (this.data.like == -1) {
+                this.setData({
+                  hateIcon: "../../images/dz2.png"
+                })
+              }
+              if (this.data.marked){
+                this.setData({
+                  markIcon: "../../images/s2.png",
+                })
+              }
             }
           })
         }
