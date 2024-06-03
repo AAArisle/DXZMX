@@ -1,8 +1,8 @@
 // pages/top.js
 const app = getApp()
 
-Page({  
-  tapToSearch: function() {
+Page({
+  tapToSearch: function () {
     wx.navigateTo({
       url: '../search/search',
     })
@@ -10,7 +10,7 @@ Page({
   tapToDetail(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../detailpost/detailpost?id='+id,
+      url: '../detailpost/detailpost?id=' + id,
     })
   },
 
@@ -18,7 +18,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article:[]
+    article: [{
+      fields: {
+        author: '',
+        updated: '',
+        title: '标题',
+        body: '经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情',
+        tags: Array.from({
+          length: 7
+        }).map(() => 'tag1')
+      },
+      school_name: '大学名称',
+      avatar_url: '../../images/user.png',
+      school_logo: '../../images/大学/暨南大学.png'
+    }, {
+      fields: {
+        author: '',
+        updated: '',
+        title: '标题',
+        body: '经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情',
+        tags: Array.from({
+          length: 7
+        }).map(() => 'tag1')
+      },
+      school_name: '大学名称',
+      avatar_url: '../../images/user.png',
+      school_logo: '../../images/大学/暨南大学.png'
+    }]
   },
 
   /**
@@ -36,7 +62,7 @@ Page({
           const access = result.data;
           console.log('index：token获得成功');
           wx.request({
-            url: 'http://127.0.0.1:8000/api/article/article-list/?search='+this.data.search,
+            url: 'http://127.0.0.1:8000/api/article/article-list/?search=' + this.data.search,
             method: 'GET',
             header: {
               // 注意字符串 'Bearer ' 尾部有个空格！

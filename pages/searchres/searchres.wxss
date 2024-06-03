@@ -1,50 +1,141 @@
 /* pages/top.wxss */
-page{
-  background-color:#ededed;
+page {
+  background-color: #ededed;
 }
 
-.group {
+.tab-wrap {
   display: flex;
-  margin-top: 32rpx;
-  margin-left: 32rpx;
+  padding: 20rpx 50rpx 40rpx;
 }
 
-.group-avatar {
-  margin-right: 24rpx;
+.tab-item {
+  flex: 1;
+  text-align: center;
+  height: 70rpx;
+  border: 1rpx solid #777;
+  line-height: 65rpx;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
-.group-content {
-  width: 566rpx;
+.tab-item:nth-child(1) {
+  border-radius: 35rpx 0 0 35rpx;
 }
 
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
+.tab-item.active {
+  background-color: #777;
+  color: #fff;
 }
 
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
+.tab-item:nth-child(3) {
+  border-radius: 0 35rpx 35rpx 0;
 }
 
-.datas{
-  display: flex;
-  justify-content: center;
-  height: 35px;
-  /* border-top: 1px solid #f3f3f3; */
-  /* border-bottom: 1px solid #f3f3f3; */
-  background-color: #ffffff;
+.article-item {
+  background: #fff;
+  margin-bottom: 20rpx;
 }
-.itemss{
+
+/* search bar */
+.search-container {
   width: 100%;
-  margin-left: 8%;
-  margin-right: 8%;
+  background-color: #fff;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-radius: 10rpx;
+  display: flex;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
 }
-.dimg{
-  width: 24px;
-  height: 24px;
-  position: relative;
-  top: 6px;
+
+input {
+  margin-left: 12rpx;
+}
+
+.tag-wrap {
+  display: flex;
+  padding: 16rpx 50rpx;
+}
+
+.tag-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rpx 6px;
+  font-size: 25rpx;
+  border: 1rpx solid #ddd;
+  background-color: #f3f3f3;
+  color: #333;
+  border-radius: 6rpx;
+}
+
+.tag-item+.tag-item {
+  margin-left: 10rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 20rpx 0;
+}
+
+.header .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  background: #ddd;
+  border-radius: 50%;
+  margin-right: 40rpx;
+}
+
+.header .logo {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.header .name-wrapper {
+  flex: 1;
+  color: #999;
+  font-size: 26rpx;
+}
+
+.header .name {
+  color: #333;
+  font-size: 38rpx;
+}
+
+.content {
+  padding: 30rpx;
+}
+
+.content .title {
+  font-size: 40rpx;
+}
+
+.content .des {
+  margin-top: 30rpx;
+  color: #999;
+}
+
+.content .tag-wrap {
+  padding: 50rpx 0 0;
+}
+
+.func-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx 30rpx;
+}
+
+.func-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 35rpx;
+}
+
+.func-item image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
 }
