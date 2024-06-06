@@ -14,6 +14,7 @@ Page({
     userInfo:{},
     // school_logo: "../../images/大学/暨南大学.png",
     // school_name: "暨南大学",
+    commentInput:'',
     school:["大学1","大学2","大学3"],
     major:["专业1","专业2","专业3"],
     course:["课程1","课程2","课程3"],
@@ -99,42 +100,83 @@ Page({
     })
     this.updateStarLike()
   },
-  onInput(e){
-    
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    var formData = e.detail.value; //提取表单数据
+    if (formData.body){
+      wx.showToast({
+        title: '发送评论中',
+        icon: 'loading',
+      })
+      app.login(() => {
+        wx.getStorage({
+          key: 'access',
+          success: (result) => {
+            const access = result.data;
+              wx.request({
+                url: 'http://127.0.0.1:8000/api/comment/post-comment/'+this.data.id+'/',
+                method: 'POST',
+                header: {
+                  'Authorization': 'Bearer ' + access,
+                  'content-type': 'application/x-www-form-urlencoded',
+                },
+                data: formData, //表单数据
+                success: () => {
+                  wx.showToast({
+                    title: '发送评论成功！',
+                    icon: 'success',
+                  });
+                  this.setData({
+                    commentInput:'',
+                    showInput: false
+                  })
+                  this.onShow()
+                }
+              })
+            }
+        })
+      })
+    }
+    else {
+      wx.showToast({
+        title: '请填写评论内容',
+        icon: 'error',
+      })
+    }
   },
-  onClickLikeComment(e){
-    var list = this.data.comments;
-    list[e.target.id].like = list[e.target.id].like!=1?1:0
-    list[e.target.id].likeIcon = list[e.target.id].like==0?"../../images/dz.png":"../../images/dz2.png"
-    list[e.target.id].hateIcon = "../../images/dz.png"
-    this.setData({
-      comments: list,
-    })
-  },
-  onClickHateComment(e){
-    var list = this.data.comments;
-    list[e.target.id].like = list[e.target.id].like!=-1?-1:0
-    list[e.target.id].likeIcon = "../../images/dz.png"
-    list[e.target.id].hateIcon = list[e.target.id].like==0?"../../images/dz.png":"../../images/dz2.png"
-    this.setData({
-      comments: list,
-    })
-  },
-  onClickDeleteComment(e){
-    let that = this;
-    wx.showModal({
-      content:"确认删除评论？",
-      success(res){
-        if(res.confirm) that.deleteComment(e.target.id)
-      },
-    });
-  },
-  deleteComment(id){
-    this.data.comments.splice(id, 1)
-    this.setData({
-      comments: this.data.comments,
-    })
-  },
+  // onClickLikeComment(e){
+  //   var list = this.data.comments;
+  //   list[e.target.id].like = list[e.target.id].like!=1?1:0
+  //   list[e.target.id].likeIcon = list[e.target.id].like==0?"../../images/dz.png":"../../images/dz2.png"
+  //   list[e.target.id].hateIcon = "../../images/dz.png"
+  //   this.setData({
+  //     comments: list,
+  //   })
+  // },
+  // onClickHateComment(e){
+  //   var list = this.data.comments;
+  //   list[e.target.id].like = list[e.target.id].like!=-1?-1:0
+  //   list[e.target.id].likeIcon = "../../images/dz.png"
+  //   list[e.target.id].hateIcon = list[e.target.id].like==0?"../../images/dz.png":"../../images/dz2.png"
+  //   this.setData({
+  //     comments: list,
+  //   })
+  // },
+  // onClickDeleteComment(e){
+  //   let that = this;
+  //   wx.showModal({
+  //     content:"确认删除评论？",
+  //     success(res){
+  //       if(res.confirm) that.deleteComment(e.target.id)
+  //     },
+  //   });
+  // },
+  // deleteComment(id){
+  //   this.data.comments.splice(id, 1)
+  //   this.setData({
+  //     comments: this.data.comments,
+  //   })
+  // },
   onClickDeleteArticle(){
     let that = this;
     wx.showModal({
@@ -248,23 +290,6 @@ Page({
               })
             }
           })
-          //获取经验详情
-          wx.request({
-            url: 'http://127.0.0.1:8000/api/article/article-detail/'+this.data.id+'/',
-            method: 'GET',
-            header: {
-              // 注意字符串 'Bearer ' 尾部有个空格！
-              'Authorization': 'Bearer ' + access
-            },
-            success: res => {
-              // 在小程序调试器中查看返回值是否正确
-              let article = JSON.parse(res.data.article)
-              console.log(article[0].fields)
-              this.setData({
-                article: article
-              })
-            }
-          })
           // 收藏和点赞
           wx.request({
             url: 'http://127.0.0.1:8000/api/weixin/about/',
@@ -302,4 +327,34 @@ Page({
       });
     })
   },
+
+  onShow() {
+    wx.getStorage({
+      key: 'access',
+      success: (result) => {
+        const access = result.data;
+        console.log('detailpost：token获得成功');
+        //获取经验详情
+        wx.request({
+          url: 'http://127.0.0.1:8000/api/article/article-detail/'+this.data.id+'/',
+          method: 'GET',
+          header: {
+            // 注意字符串 'Bearer ' 尾部有个空格！
+            'Authorization': 'Bearer ' + access
+          },
+          success: res => {
+            // 在小程序调试器中查看返回值是否正确
+            let article = JSON.parse(res.data.article)
+            let comments = JSON.parse(res.data.comments)
+            console.log(article[0].fields)
+            console.log(comments)
+            this.setData({
+              article: article,
+              comments: comments
+            })
+          }
+        })
+      }
+    })
+  }
 })
