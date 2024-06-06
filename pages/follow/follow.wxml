@@ -8,6 +8,8 @@
   <t-icon class="arrow" name="chevron-right" size="30" bind:click="Edit" />
 </view>
 
+<view class="latest-experience">最新经验</view>
+
 <view class="contain" >
   <block wx:for="{{[1,2,3,4,5]}}" wx:key="index">
     <view style="background-color: white; " bind:tap="tapToDetail">
@@ -18,17 +20,21 @@
       </t-cell>
     </view>
     <view class="datas">
-      <view class="itemss">
-        <image src="../../images/ll.png" class="dimg"/>
-        浏览数
-      </view>
-      <view class="itemss" >
-        <image src="../../images/c.png" class="dimg"/>
-        评论数
+       <view class="itemss">
+          <image src="../../images/ll.png" class="dimg"/>
+          <text class="datas_num">{{item.fields.total_views}}</text>
       </view>
       <view class="itemss">
-        <image src="../../images/l.png" class="dimg"/>
-        点赞数
+          <image src="../../images/pl.png" class="dimg"/>
+          <text class="datas_num">{{item.fields.comments}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.likes}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg2"/>
+        <text class="datas_num">{{item.fields.hates}}</text>
       </view>
     </view>
     <t-divider></t-divider>
