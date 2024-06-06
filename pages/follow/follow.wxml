@@ -10,7 +10,7 @@
     <block wx:for="{{experience}}" wx:key="index">
       <view class="experience-item">
         <view class="head">
-          <image class="userIcon" src="{{item.avatarUrl}}" />
+          <image class="userIcon" src="{{item.fields.avatarUrl}}" />
           <view class="userinfo">
             <text class="uname">{{item.username}}</text>
             <text class="uschool">{{item.schoolName}}</text>

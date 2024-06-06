@@ -3,6 +3,23 @@ page{
   background-color:#ededed;
 }
 
+.item{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  text-align: center;
+}
+.tags{
+  width: 90%;
+  height: 30px;
+  margin-left: 5%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .group {
   display: flex;
   margin-top: 32rpx;
@@ -35,6 +52,8 @@ page{
   display: flex;
   justify-content: center;
   height: 35px;
+  border-top: 1px solid #f3f3f3;
+  /* border-bottom: 1px solid #f3f3f3; */
   background-color: #ffffff;
 }
 .itemss{

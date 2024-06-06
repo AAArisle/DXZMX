@@ -5,7 +5,7 @@
 
 <view class="background">
   <view class="head">
-    <image src="{{article[0].avatar_url}}" class="userIcon"/>
+    <image src="{{article[0].fields.avatar_url}}" class="userIcon"/>
     <view class="userinfo">
       <text class="uname">{{article[0].fields.author}}</text>
       <block wx:if="{{article[0].fields.school != -1}}">
@@ -42,7 +42,7 @@
     <image class="image" mode="aspectFit" wx:if="{{article[0].fields.image!='http://127.0.0.1:8000/media/'}}" src="{{article[0].fields.image}}"></image>
   </view>
 
-  <view class="icons" wx:if="{{userInfo.avatarUrl == article[0].avatar_url}}">
+  <view class="icons" wx:if="{{userInfo.avatarUrl == article[0].fields.avatar_url}}">
     <image src="../../images/ed.png" class="iimg" bind:tap="tapToEdit"/>
     <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
@@ -65,15 +65,15 @@
       <text class="datas_num">{{article[0].fields.total_views}}</text>
     </view>
     <view class="itemss">
-      <image src="../../images/c.png" class="dimg"/>
-      <text class="datas_num">{{article[0].fields.commentAmount}}</text>
+      <image src="../../images/pl.png" class="dimg"/>
+      <text class="datas_num">{{article[0].fields.comments}}</text>
     </view>
     <view class="itemss">
-      <image src="../../images/l.png" class="dimg"/>
+      <image src="../../images/dz.png" class="dimg"/>
       <text class="datas_num">{{article[0].fields.likes}}</text>
     </view>
     <view class="itemss">
-      <image src="../../images/l.png" class="dimg2"/>
+      <image src="../../images/dz.png" class="dimg2"/>
       <text class="datas_num">{{article[0].fields.hates}}</text>
     </view>
   </view>
@@ -85,7 +85,7 @@
   <view wx:for="{{comments}}" wx:key="index">
     <view class="comment">
       <view class="user">
-          <image src="{{item.avatarUrl}}" class="avatar"/>
+          <image src="{{item.fields.avatarUrl}}" class="avatar"/>
           <text class="nick_name">{{item.fields.user}}</text>
           <text class="comment_date">{{item.fields.created}}</text>
       </view>
