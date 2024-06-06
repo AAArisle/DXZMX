@@ -1,32 +1,33 @@
 <!--pages/history/history.wxml-->
-<view class="search-entry" >
-  <t-search class="search-input" placeholder="" bind:change="search" />
-  <t-icon class="edit-img" name="more" size="24" bind:click="edit" />
-</view>
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
 
-<view class="contain" >
-  <block wx:for="{{[1,2,3,4,5]}}" wx:key="index">
-    <view style="background-color: white; " bind:tap="tapToDetail">
-      <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
-        <view class="avatar" slot="left-icon">
-          <open-data type="userAvatarUrl" />
-        </view>
-      </t-cell>
-    </view>
+<view wx:if="{{article.length == 0}}">目前你还没有浏览过经验！</view>
+
+<block wx:for="{{article}}" wx:key="index">
+  <view style="background-color: white; " bind:tap="tapToDetail" data-id="{{item.pk}}">
+    <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}更新">
+      <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+    </t-cell>
+    <t-cell title="{{item.fields.title}}" description="{{tools.sub(item.fields.body,100)}}"/>
     <view class="datas">
       <view class="itemss">
         <image src="../../images/ll.png" class="dimg"/>
-        浏览数
-      </view>
-      <view class="itemss" >
-        <image src="../../images/c.png" class="dimg"/>
-        评论数
+        <text class="datas_num">{{item.fields.total_views}}</text>
       </view>
       <view class="itemss">
-        <image src="../../images/l.png" class="dimg"/>
-        点赞数
+        <image src="../../images/pl.png" class="dimg"/>
+        <text class="datas_num">数</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.likes}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg2"/>
+        <text class="datas_num">{{item.fields.hates}}</text>
       </view>
     </view>
-    <t-divider></t-divider>
-  </block>
-</view>
+  </view>
+  <t-divider></t-divider>
+</block>

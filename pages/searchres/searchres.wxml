@@ -1,10 +1,9 @@
-<!-- 首页 -->
-
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
+
 <view class='search-container'>
   <icon type="search" size='15' />
-  <input placeholder='输入搜索的关键字'></input>
+  <input placeholder='没有在搜索的关键字' disabled="true" value="{{search}}"></input>
 </view>
 <view class="tag-wrap">
   <text wx:for="{{6}}" class="tag-item">Tag1</text>
@@ -15,34 +14,33 @@
   <view class="tab-item">最赞</view>
   <view class="tab-item">最热</view>
 </view>
-<view wx:for="{{article}}" wx:key="index" class="article-item" bind:tap="tapToDetail" data-id="{{item.pk}}">
-  <view class="header">
-    <image class="avatar" slot="left-icon" src="{{item.avatar_url}}" />
-    <view class="name-wrapper">
-      <view class="name">{{item.fields.author || '用户名'}}</view>
-      <text class="name-des">{{item.school_name || '大学名称'}} | {{item.fields.updated || '更新时间'}}</text>
-    </view>
-    <image class="logo" slot="left-icon" src="{{item.school_logo}}" />
-  </view>
-  <view class="content">
-    <view class="title">{{item.fields.title}}</view>
-    <view class="des">{{tools.sub(item.fields.body,100)}}</view>
-    <view class="tag-wrap">
-      <text class="tag-item" wx:for="{{item.fields.tags}}" wx:key="index">{{item}}</text>
-    </view>
-  </view>
-  <view class="func-wrap">
-    <view class="func-item">
-      <image src="../../images/ll.png" />
-      {{item.fields.total_views || '浏览数'}}
-    </view>
-    <view class="func-item">
-      <image src="../../images/pl.png" />
-      {{item.fields.comments || '评论数'}}
-    </view>
-    <view class="func-item">
-      <image src="../../images/dz.png" />
-      {{item.fields.likes || '点赞数'}}
+
+<view wx:if="{{article.length == 0}}">搜索结果为空！</view>
+
+<block wx:for="{{article}}" wx:key="index">
+  <view style="background-color: white; " bind:tap="tapToDetail" data-id="{{item.pk}}">
+    <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}更新">
+      <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+    </t-cell>
+    <t-cell title="{{item.fields.title}}" description="{{tools.sub(item.fields.body,100)}}"/>
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.total_views}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/pl.png" class="dimg"/>
+        <text class="datas_num">数</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg"/>
+        <text class="datas_num">{{item.fields.likes}}</text>
+      </view>
+      <view class="itemss">
+        <image src="../../images/dz.png" class="dimg2"/>
+        <text class="datas_num">{{item.fields.hates}}</text>
+      </view>
     </view>
   </view>
-</view>
+  <t-divider></t-divider>
+</block>

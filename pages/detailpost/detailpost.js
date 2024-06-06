@@ -214,6 +214,16 @@ Page({
    */
   onLoad(options) {
     this.setData({id:options.id})
+    // 存储历史记录
+    const historys = wx.getStorageSync('historys') || []
+    let index = historys.indexOf(options.id)
+    if (index != -1){
+      historys.splice(index, 1)
+    }
+    historys.unshift(options.id)
+    wx.setStorageSync('historys', historys)
+    console.log(historys)
+
     app.login(() => {
       // 用token获取用户数据
       wx.getStorage({

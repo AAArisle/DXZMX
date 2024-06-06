@@ -1,4 +1,4 @@
-/* pages/history/history.wxss */
+/* pages/top.wxss */
 page{
   background-color:#ededed;
 }
@@ -19,8 +19,8 @@ page{
 
 .avatar {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
 }
 
 .avatar-wrapper {
@@ -29,46 +29,35 @@ page{
   border-radius: 8px;
 }
 
-.contain{
-  position: absolute;
-  top: 86rpx;
-  left: 00rpx;
-  width: 100%;
-}
-
-.search-entry {
-  display: grid;
-  grid-template-columns: 8fr 1fr;
-  width: 100%;
-  box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
-  z-index: 1;
-  position: fixed;
-  background-color: rgba(235, 235, 235, 1);
-}
-
-.edit-img {
-  margin-top: 16rpx;
-}
-
-
-.itemss{
+.datas{
   width: 100%;
   margin-left: 5%;
-}
-.dimg{
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 5px;
-}
-.datas{
   display: flex;
   justify-content: center;
-  height: 30px;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
+  height: 35px;
   background-color: #ffffff;
+}
+.itemss{
+  width: 100%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
+}
+.dimg{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+}
+.dimg2{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+  transform: scaleY(-1);
+}
+.datas_num{
+  position: relative;
+  margin-left: 3px;
+  top: 7px;
 }
