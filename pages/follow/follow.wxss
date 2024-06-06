@@ -16,7 +16,7 @@ page{
 .search-box {
   width: 100%;
   margin-bottom: 20rpx;
-  border: 2rpx solid black;  /* 黑色边框 */
+  border: 2rpx solid black; 
   border-radius: 10rpx;
 }
 

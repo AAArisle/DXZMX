@@ -1,11 +1,11 @@
 <view class="container">
-  <!-- 搜索框 -->
+  
   <view class="search-box">
     <input placeholder="搜索" focus="{{false}}" bindfocus="onSearchFocus" />
   </view>
-  <!-- 最新经验 -->
+
   <view class="latest-experience">最新经验</view>
-  <!-- 主要内容区域 -->
+ 
   <scroll-view class="main-content" scroll-y="true">
     <block wx:for="{{experience}}" wx:key="index">
       <view class="experience-item">
