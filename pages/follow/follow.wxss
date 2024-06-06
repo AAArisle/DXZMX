@@ -7,14 +7,15 @@ page{
   display: grid;
   grid-template-columns:9fr 1fr;
   background-color:white;
+  padding: 10rpx
 }
 .scroll{
   white-space: nowrap;
 }
 .followIcon{
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin: 10px 10px;
 }
 .arrow{
@@ -49,7 +50,7 @@ page{
 
 .contain{
   position: absolute;
-  top: 175rpx;
+  top: 190rpx;
   left: 00rpx;
   width: 100%;
 }
