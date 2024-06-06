@@ -16,7 +16,6 @@ page{
   height: 30px;
   margin-left: 5%;
   display: flex;
-  justify-content: left;
   margin-top: 10px;
   margin-bottom: 10px;
 }

@@ -12,12 +12,34 @@ Page({
     StorageFlag: true, //搜索记录
     searcherStorage: [], //历史记录列表
     maxSize: 4, //最大记录数
-    school:["清华大学","北京大学"],
+    school:["大学1","大学2","大学3"],
+    schoolValue: -1,
     schooldata:'请选择',
-    zhuanye:["数学系","计算机系"],
+    zhuanye:["专业1","专业2","专业3"],
+    majorValue: -1,
     zhuanyedata:'请选择',
-    class:["高等数学","计算机科学"],
-    classdata:'请选择'
+    class:["课程1","课程2","课程3"],
+    courseValue: -1,
+    classdata:'请选择',
+  },
+
+  schoolChange:function(e){
+    this.setData({
+      schooldata : this.data.school[e.detail.value],
+      schoolValue: e.detail.value
+    })
+  },
+  zhuanyeChange:function(e){
+    this.setData({
+      zhuanyedata : this.data.zhuanye[e.detail.value],
+      majorValue: e.detail.value
+    })
+  },
+  classChange:function(e){
+    this.setData({
+      classdata : this.data.class[e.detail.value],
+      courseValue: e.detail.value
+    })
   },
 
   /**
@@ -57,7 +79,7 @@ Page({
     })
     wx.setStorageSync('searcher', searcherStorage);
     wx.navigateTo({
-      url: '../searchres/searchres?search='+this.data.inputValue,
+      url: '../searchres/searchres?search='+this.data.inputValue+'&school='+this.data.schoolValue+'&major='+this.data.majorValue+'&course='+this.data.courseValue,
     })
   },
   deteleSearcherStorage(e) {
@@ -83,7 +105,7 @@ Page({
       })
     }
     wx.navigateTo({
-      url: '../searchres/searchres?search='+this.data.inputValue,
+      url: '../searchres/searchres?search='+this.data.inputValue+'&school='+this.data.schoolValue+'&major='+this.data.majorValue+'&course='+this.data.courseValue,
     })
   },
   getResult(inputVal) { 

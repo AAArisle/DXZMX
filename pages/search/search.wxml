@@ -29,10 +29,9 @@
         学校名称
       </view>
     </view>
-    <picker mode="selector" range="{{school}}"  class="pickerss" bindchange="schoolChange">
+    <picker mode="selector" range="{{school}}"  class="pickerss" bindchange="schoolChange" value="{{schoolValue}}">
       <view class="picker">
         {{schooldata}}
-        <input wx:if="{{schooldata != '请选择'}}" style="display:none" value="{{schooldata}}" name="school"/>
       </view>
     </picker>
   </view>
@@ -43,10 +42,9 @@
         专业名称
       </view>
     </view>
-    <picker mode="selector" range="{{zhuanye}}"  class="pickerss" bindchange="zhuanyeChange">
+    <picker mode="selector" range="{{zhuanye}}"  class="pickerss" bindchange="zhuanyeChange" value="{{majorValue}}">
       <view class="picker">
         {{zhuanyedata}}
-        <input style="display:none" value="{{zhuanyedata}}" name="major"/>
       </view>
     </picker>
   </view>
@@ -57,7 +55,7 @@
         课程名称
       </view>
     </view>
-    <picker mode="selector" range="{{class}}"  class="pickerss" bindchange="classChange">
+    <picker mode="selector" range="{{class}}"  class="pickerss" bindchange="classChange" value="{{courseValue}}">
       <view class="picker">
         {{classdata}}
       </view>

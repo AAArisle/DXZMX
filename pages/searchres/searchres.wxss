@@ -53,6 +53,24 @@ input {
   margin-left: 12rpx;
 }
 
+.item{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  text-align: center;
+  background-color: white;
+}
+.tags{
+  width: 90%;
+  height: 30px;
+  margin-left: 5%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .tag-wrap {
   display: flex;
   padding: 16rpx 50rpx;

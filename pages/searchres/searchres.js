@@ -18,15 +18,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    schoolList:["大学1","大学2","大学3"],
+    school:'-1',
+    majorList:["专业1","专业2","专业3"],
+    major:'-1',
+    courseList:["课程1","课程2","课程3"],
+    course:'-1',
     article: [{
       fields: {
         author: '',
         updated: '',
         title: '标题',
         body: '经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情经验内容详情',
-        tags: Array.from({
-          length: 7
-        }).map(() => 'tag1')
       },
       school_name: '大学名称',
       avatar_url: '../../images/user.png',
@@ -53,6 +56,9 @@ Page({
   onLoad(options) {
     this.setData({
       search: options.search,
+      school: options.school,
+      major: options.major,
+      course: options.course
     })
     app.login(() => {
       // 用token获取用户数据
@@ -62,7 +68,7 @@ Page({
           const access = result.data;
           console.log('index：token获得成功');
           wx.request({
-            url: 'http://127.0.0.1:8000/api/article/article-list/?search=' + this.data.search,
+            url: 'http://127.0.0.1:8000/api/article/article-list/?search='+this.data.search+'&school='+this.data.school+'&major='+this.data.major+'&course='+this.data.course,
             method: 'GET',
             header: {
               // 注意字符串 'Bearer ' 尾部有个空格！

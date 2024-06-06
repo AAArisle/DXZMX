@@ -5,9 +5,16 @@
   <icon type="search" size='15' />
   <input placeholder='没有在搜索的关键字' disabled="true" value="{{search}}"></input>
 </view>
-<view class="tag-wrap">
-  <text wx:for="{{6}}" class="tag-item">Tag1</text>
-  <text class="tag-item">...</text>
+<view class="tags" wx:if="{{school != -1 || major != -1 || course != -1}}">
+  <view wx:if="{{school != -1}}" class="item">
+    {{schoolList[school]}}
+  </view>
+  <view wx:if="{{major != -1}}" class="item">
+    {{majorList[major]}}
+  </view>
+  <view wx:if="{{course != -1}}" class="item">
+    {{courseList[course]}}
+  </view>
 </view>
 <view class="tab-wrap">
   <view class="tab-item active">最新</view>
