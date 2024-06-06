@@ -1,13 +1,11 @@
 <!--pages/follow/follow.wxml-->
 <view class="top">
-  <scroll-view class="scroll" scroll-x="{{true}}" scroll-y="{{false}}" style="width: 100%; height: 75px;background-color: white;">
-    <image class="followIcon" src="../../images/大学/暨南大学.png" mode="aspectFit"/>
+  <scroll-view class="scroll" scroll-x="{{true}}" scroll-y="{{false}}" style="width: 100%; height: 60px; background-color: white;">
+    <block wx:for="{{[1,2,3]}}" wx:key="index">
+      <image class="followIcon" src="../../images/大学/暨南大学.png" mode="aspectFit"/>
+    </block>
   </scroll-view>
-  <t-icon class="arrow" name="chevron-right" size="24" bind:click="Edit" />
-</view>
-
-<view class="search-entry" >
-  <t-search class="search-input" placeholder="" bind:change="search" />
+  <t-icon class="arrow" name="chevron-right" size="30" bind:click="Edit" />
 </view>
 
 <view class="contain" >
