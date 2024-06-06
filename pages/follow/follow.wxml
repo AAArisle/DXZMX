@@ -1,2 +1,42 @@
-<!--pages/follow/follow.wxml-->
-<text>pages/follow/follow.wxml</text>
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input placeholder="搜索" focus="{{false}}" bindfocus="onSearchFocus" />
+  </view>
+  <!-- 最新经验 -->
+  <view class="latest-experience">最新经验</view>
+  <!-- 主要内容区域 -->
+  <scroll-view class="main-content" scroll-y="true">
+    <block wx:for="{{experience}}" wx:key="index">
+      <view class="experience-item">
+        <view class="head">
+          <image class="userIcon" src="{{item.avatarUrl}}" />
+          <view class="userinfo">
+            <text class="uname">{{item.username}}</text>
+            <text class="uschool">{{item.schoolName}}</text>
+          </view>
+          <image class="schoolLogo" src="{{item.schoolLogo}}" />
+        </view>
+        <view class="body">
+          <text class="left">{{item.title}}</text>
+          <view class="content">{{item.content}}</view>
+        </view>
+        <view class="icons">
+          <view class="icon-item">
+            <image class="iimg" src="../../images/ll.png" />
+            <text class="datas_num">{{item.views}}</text>
+          </view>
+          <view class="icon-item">
+            <image class="iiimg" src="../../images/c.png" />
+            <text class="datas_num">{{item.comments}}</text>
+          </view>
+          <view class="icon-item">
+            <image class="iiimg" src="../../images/l.png" />
+            <text class="datas_num">{{item.likes}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>
