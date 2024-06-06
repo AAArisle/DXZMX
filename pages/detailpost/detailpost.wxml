@@ -3,16 +3,29 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 
-<!--<pop_up showPopup="{{popUp.show}}" text="{{popUp.text}}" bind:confirm="{{popUp.confirm}}"></pop_up>-->
-
 <view class="background">
   <view class="head">
     <image src="{{article[0].avatar_url}}" class="userIcon"/>
     <view class="userinfo">
       <text class="uname">{{article[0].fields.author}}</text>
-      <text class="uschool">{{school_name}} | {{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
+      <block wx:if="{{article[0].fields.school != -1}}">
+        <block wx:if="{{tools.sub(article[0].fields.updated, 0, 22) != tools.sub(article[0].fields.created, 0, 22)}}">
+          <text class="uschool">{{school[article[0].fields.school]}} | {{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
+        </block>
+        <block wx:else>
+          <text class="uschool">{{school[article[0].fields.school]}} | {{tools.sub(article[0].fields.updated, 0, 10)}}发布</text>
+        </block>
+      </block>
+      <block wx:if="{{article[0].fields.school == -1}}">
+        <block wx:if="{{tools.sub(article[0].fields.updated, 0, 22) != tools.sub(article[0].fields.created, 0, 22)}}">
+          <text class="uschool">{{tools.sub(article[0].fields.updated, 0, 10)}}更新</text>
+        </block>
+        <block wx:else>
+          <text class="uschool">{{tools.sub(article[0].fields.updated, 0, 10)}}发布</text>
+        </block>
+      </block>
     </view>
-    <image src="{{school_logo}}" class="schoolLogo" mode="aspectFit"></image>
+    <!-- <image src="{{school_logo}}" class="schoolLogo" mode="aspectFit"></image> -->
   </view>
 
   <view class="post">
@@ -34,11 +47,17 @@
     <image src="../../images/del.png" class="iiimg" bind:tap="onClickDeleteArticle"/>
   </view>
 
-  <view class="tags">
-    <view wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="index" class="item">
-      Tag
+  <view class="tags" wx:if="{{article[0].fields.school != -1 || article[0].fields.major != -1 || article[0].fields.course != -1}}">
+      <view wx:if="{{article[0].fields.school != -1}}" class="item">
+        {{school[article[0].fields.school]}}
+      </view>
+      <view wx:if="{{article[0].fields.major != -1}}" class="item">
+        {{major[article[0].fields.major]}}
+      </view>
+      <view wx:if="{{article[0].fields.course != -1}}" class="item">
+        {{course[article[0].fields.course]}}
+      </view>
     </view>
-  </view>
 
   <view class="datas">
     <view class="itemss">

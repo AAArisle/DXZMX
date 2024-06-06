@@ -9,12 +9,13 @@ Page({
       body:'',
       mypath: '../../images/upload.png',
     },
-    school:["清华大学","北京大学"],
+    school:["大学1","大学2","大学3"],
     schooldata:'请选择',
-    zhuanye:["数学系","计算机系"],
+    zhuanye:["专业1","专业2","专业3"],
     zhuanyedata:'请选择',
-    class:["高等数学","计算机科学"],
-    classdata:'请选择'
+    class:["课程1","课程2","课程3"],
+    classdata:'请选择',
+    pickerDefault: -1
   },
 
   schoolChange:function(e){
@@ -153,7 +154,10 @@ Page({
       "article.title": '',
       "article.body": '',
       "article.mypath": '../../images/upload.png',
-      
+      schooldata:'请选择',
+      zhuanyedata:'请选择',
+      classdata:'请选择',
+      pickerDefault: -1
     })
   }
 })

@@ -12,8 +12,11 @@ Page({
     likeIcon:"../../images/dz.png",
     hateIcon:"../../images/dz.png",
     userInfo:{},
-    school_logo: "../../images/大学/暨南大学.png",
-    school_name: "暨南大学",
+    // school_logo: "../../images/大学/暨南大学.png",
+    // school_name: "暨南大学",
+    school:["大学1","大学2","大学3"],
+    major:["专业1","专业2","专业3"],
+    course:["课程1","课程2","课程3"],
     article: [{
       avatar_url: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
       fields:{

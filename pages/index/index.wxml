@@ -5,10 +5,42 @@
 
 <block wx:for="{{article}}" wx:key="index">
   <view style="background-color: white; " bind:tap="tapToDetail" data-id="{{item.pk}}">
-    <t-cell title="{{item.fields.author}}" description="大学名称 | {{tools.sub(item.fields.updated, 0, 10)}}更新">
-      <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
-    </t-cell>
+    <block wx:if="{{item.fields.school != -1}}">
+      <block wx:if="{{tools.sub(item.fields.updated, 0, 22) != tools.sub(item.fields.created, 0, 22)}}">
+        <t-cell title="{{item.fields.author}}" description="{{school[item.fields.school]}} | {{tools.sub(item.fields.updated, 0, 10)}}更新">
+          <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+        </t-cell>
+      </block>
+      <block wx:else>
+        <t-cell title="{{item.fields.author}}" description="{{school[item.fields.school]}} | {{tools.sub(item.fields.updated, 0, 10)}}发布">
+          <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+        </t-cell>
+      </block>
+    </block>
+    <block wx:if="{{item.fields.school == -1}}">
+      <block wx:if="{{tools.sub(item.fields.updated, 0, 22) != tools.sub(item.fields.created, 0, 22)}}">
+        <t-cell title="{{item.fields.author}}" description="{{tools.sub(item.fields.updated, 0, 10)}}更新">
+          <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+        </t-cell>
+      </block>
+      <block wx:else>
+        <t-cell title="{{item.fields.author}}" description="{{tools.sub(item.fields.updated, 0, 10)}}发布">
+          <image class="avatar" slot="left-icon" src="{{item.avatar_url}}"/>
+        </t-cell>
+      </block>
+    </block>
     <t-cell title="{{item.fields.title}}" description="{{tools.sub(item.fields.body,100)}}"/>
+    <view class="tags" wx:if="{{item.fields.school != -1 || item.fields.major != -1 || item.fields.course != -1}}">
+      <view wx:if="{{item.fields.school != -1}}" class="item">
+        {{school[item.fields.school]}}
+      </view>
+      <view wx:if="{{item.fields.major != -1}}" class="item">
+        {{major[item.fields.major]}}
+      </view>
+      <view wx:if="{{item.fields.course != -1}}" class="item">
+        {{course[item.fields.course]}}
+      </view>
+    </view>
     <view class="datas">
       <view class="itemss">
         <image src="../../images/ll.png" class="dimg"/>

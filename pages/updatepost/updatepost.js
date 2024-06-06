@@ -8,13 +8,17 @@ Page({
       title:'',
       body:'',
       mypath: '../../images/upload.png',
+      school:'-1',
+      major:'-1',
+      course:'-1'
     },
-    school:["清华大学","北京大学"],
+    school:["大学1","大学2","大学3"],
     schooldata:'请选择',
-    zhuanye:["数学系","计算机系"],
+    zhuanye:["专业1","专业2","专业3"],
     zhuanyedata:'请选择',
-    class:["高等数学","计算机科学"],
-    classdata:'请选择'
+    class:["课程1","课程2","课程3"],
+    classdata:'请选择',
+    pickerDefault: -1
   },
 
   schoolChange:function(e){
@@ -149,6 +153,10 @@ Page({
       "article.title": '',
       "article.body": '',
       "article.mypath": '../../images/upload.png',
+      schooldata:'请选择',
+      zhuanyedata:'请选择',
+      classdata:'请选择',
+      pickerDefault: -1
     })
   },
 
@@ -175,10 +183,28 @@ Page({
               this.setData({
                 "article.title":article[0].fields.title,
                 "article.body":article[0].fields.body,
+                "article.school":article[0].fields.school,
+                "article.major":article[0].fields.major,
+                "article.course":article[0].fields.course,
               })
               if (article[0].fields.image != "http://127.0.0.1:8000/media/") {
                 this.setData({
                   "article.mypath":article[0].fields.image,
+                })
+              }
+              if (this.data.article.school != -1) {
+                this.setData({
+                  schooldata: this.data.school[this.data.article.school]
+                })
+              }
+              if (this.data.article.major != -1) {
+                this.setData({
+                  zhuanyedata: this.data.zhuanye[this.data.article.major]
+                })
+              }
+              if (this.data.article.course != -1) {
+                this.setData({
+                  classdata: this.data.class[this.data.article.course]
                 })
               }
             }
