@@ -49,7 +49,7 @@ page{
 
 .contain{
   position: absolute;
-  top: 180rpx;
+  top: 175rpx;
   left: 00rpx;
   width: 100%;
 }
@@ -58,9 +58,9 @@ page{
   font-size: 32rpx;
   text-align: center;
   margin-bottom: 20rpx;
-  border-top: 5rpx solid black;   /* 上边黑色横线 */
-  border-bottom: 5rpx solid black;  /* 下边黑色横线 */
-  padding: 10rpx 0;  /* 添加上下间距 */
+  border-top: 5rpx solid #5c5858;
+  border-bottom: 5rpx solid #5c5858;  
+  padding: 10rpx 0;  
 }
 
 
@@ -75,7 +75,9 @@ page{
   margin-left: 1%;
   margin-right: 1%;
   display: flex;
+  position: relative;
 }
+
 
 .dimg{
   width: 24px;
@@ -94,7 +96,7 @@ page{
 .datas{
   display: flex;
   justify-content: center;
-  height: 30px;
+  height: 35px;
   border-top: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
   background-color: #ffffff;
