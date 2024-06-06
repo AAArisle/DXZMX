@@ -1,42 +1,38 @@
-<view class="container">
-  
-  <view class="search-box">
-    <input placeholder="搜索" focus="{{false}}" bindfocus="onSearchFocus" />
-  </view>
-
-  <view class="latest-experience">最新经验</view>
- 
-  <scroll-view class="main-content" scroll-y="true">
-    <block wx:for="{{experience}}" wx:key="index">
-      <view class="experience-item">
-        <view class="head">
-          <image class="userIcon" src="{{item.fields.avatarUrl}}" />
-          <view class="userinfo">
-            <text class="uname">{{item.username}}</text>
-            <text class="uschool">{{item.schoolName}}</text>
-          </view>
-          <image class="schoolLogo" src="{{item.schoolLogo}}" />
-        </view>
-        <view class="body">
-          <text class="left">{{item.title}}</text>
-          <view class="content">{{item.content}}</view>
-        </view>
-        <view class="icons">
-          <view class="icon-item">
-            <image class="iimg" src="../../images/ll.png" />
-            <text class="datas_num">{{item.views}}</text>
-          </view>
-          <view class="icon-item">
-            <image class="iiimg" src="../../images/c.png" />
-            <text class="datas_num">{{item.comments}}</text>
-          </view>
-          <view class="icon-item">
-            <image class="iiimg" src="../../images/l.png" />
-            <text class="datas_num">{{item.likes}}</text>
-          </view>
-        </view>
-      </view>
-    </block>
+<!--pages/follow/follow.wxml-->
+<view class="top">
+  <scroll-view class="scroll" scroll-x="{{true}}" scroll-y="{{false}}" style="width: 100%; height: 75px;background-color: white;">
+    <image class="followIcon" src="../../images/大学/暨南大学.png" mode="aspectFit"/>
   </scroll-view>
+  <t-icon class="arrow" name="chevron-right" size="24" bind:click="Edit" />
+</view>
 
+<view class="search-entry" >
+  <t-search class="search-input" placeholder="" bind:change="search" />
+</view>
+
+<view class="contain" >
+  <block wx:for="{{[1,2,3,4,5]}}" wx:key="index">
+    <view style="background-color: white; " bind:tap="tapToDetail">
+      <t-cell title="标题" description="{{userInfo.daysAgoViewed}}">
+        <view class="avatar" slot="left-icon">
+          <open-data type="userAvatarUrl" />
+        </view>
+      </t-cell>
+    </view>
+    <view class="datas">
+      <view class="itemss">
+        <image src="../../images/ll.png" class="dimg"/>
+        浏览数
+      </view>
+      <view class="itemss" >
+        <image src="../../images/c.png" class="dimg"/>
+        评论数
+      </view>
+      <view class="itemss">
+        <image src="../../images/l.png" class="dimg"/>
+        点赞数
+      </view>
+    </view>
+    <t-divider></t-divider>
+  </block>
 </view>
