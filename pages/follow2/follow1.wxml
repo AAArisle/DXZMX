@@ -1,0 +1,42 @@
+<!--pages/follow2.wxml-->
+<view class="container">
+  <view class="header">
+    <image src="/images/settings.png" class="icon-left"></image>
+    <text>我的关注</text>
+  </view>
+
+  <view class="section">
+    <input class="search-bar" placeholder="请输入搜索关键字" />
+    <view class="follow-list">
+      <view class="follow-item">专业1</view>
+      <view class="follow-item">专业2</view>
+    </view>
+  </view>
+
+  <view class="header">
+    <text>所有可关注对象</text>
+     <view class="icons">
+      <image src="/images/add.png" class="icon"></image>
+    </view>
+  </view>
+  <view class="section">
+    <view class="search-container">
+      <input class="search-bar" placeholder="请输入搜索关键字" />
+      <image src="/images/search.png" class="search-icon"></image>
+    </view>
+    <view class="follow-list">
+      <view class="follow-item">
+        <text>专业1</text>
+        <image src="/images/delete.png" class="icon"></image>
+      </view>
+      <view class="follow-item">
+        <text>专业2</text>
+        <image src="/images/delete.png" class="icon"></image>
+      </view>
+      <view class="follow-item">
+        <text>专业3</text>
+        <image src="/images/check.png" class="icon"></image>
+      </view>
+    </view>
+  </view>
+</view>
