@@ -17,9 +17,12 @@
   </view>
 </view>
 <view class="tab-wrap">
-  <view class="tab-item active">最新</view>
-  <view class="tab-item">最赞</view>
-  <view class="tab-item">最热</view>
+  <view class="tab-item active" wx:if="{{order == 'normal'}}">最新</view>
+  <view class="tab-item" wx:else bind:tap="changeOrderNew">最新</view>
+  <view class="tab-item active" wx:if="{{order == 'likes'}}">最赞</view>
+  <view class="tab-item" wx:else bind:tap="changeOrderLike">最赞</view>
+  <view class="tab-item active" wx:if="{{order == 'total_views'}}">最热</view>
+  <view class="tab-item" wx:else bind:tap="changeOrderHot">最热</view>
 </view>
 
 <view wx:if="{{article.length == 0}}">搜索结果为空！</view>

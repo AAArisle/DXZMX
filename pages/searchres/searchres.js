@@ -24,6 +24,7 @@ Page({
     major:'-1',
     courseList:["课程1","课程2","课程3"],
     course:'-1',
+    order:'normal',
     article: [{
       fields: {
         author: '',
@@ -50,16 +51,25 @@ Page({
     }]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  changeOrderNew() {
     this.setData({
-      search: options.search,
-      school: options.school,
-      major: options.major,
-      course: options.course
+      order: 'normal'
     })
+    this.sortList()
+  },
+  changeOrderLike() {
+    this.setData({
+      order: 'likes'
+    })
+    this.sortList()
+  },
+  changeOrderHot() {
+    this.setData({
+      order: 'total_views'
+    })
+    this.sortList()
+  },
+  sortList() {
     app.login(() => {
       // 用token获取用户数据
       wx.getStorage({
@@ -68,7 +78,7 @@ Page({
           const access = result.data;
           console.log('index：token获得成功');
           wx.request({
-            url: 'http://127.0.0.1:8000/api/article/article-list/?search='+this.data.search+'&school='+this.data.school+'&major='+this.data.major+'&course='+this.data.course,
+            url: 'http://127.0.0.1:8000/api/article/article-list/?search='+this.data.search+'&school='+this.data.school+'&major='+this.data.major+'&course='+this.data.course+'&order='+this.data.order,
             method: 'GET',
             header: {
               // 注意字符串 'Bearer ' 尾部有个空格！
@@ -87,4 +97,44 @@ Page({
       });
     })
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    this.setData({
+      search: options.search,
+      school: options.school,
+      major: options.major,
+      course: options.course
+    })
+  },
+  onShow() {
+    app.login(() => {
+      // 用token获取用户数据
+      wx.getStorage({
+        key: 'access',
+        success: (result) => {
+          const access = result.data;
+          console.log('index：token获得成功');
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/article/article-list/?search='+this.data.search+'&school='+this.data.school+'&major='+this.data.major+'&course='+this.data.course+'&order='+this.data.order,
+            method: 'GET',
+            header: {
+              // 注意字符串 'Bearer ' 尾部有个空格！
+              'Authorization': 'Bearer ' + access
+            },
+            success: res => {
+              // 在小程序调试器中查看返回值是否正确
+              let articles = JSON.parse(res.data.articles)
+              console.log(articles)
+              this.setData({
+                article: articles
+              })
+            }
+          })
+        }
+      });
+    })
+  }
 })
