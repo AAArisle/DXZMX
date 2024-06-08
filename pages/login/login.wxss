@@ -15,6 +15,9 @@ page {
   align-items: center;
   color: #aaa;
   width: 80%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
 }
 
 .userinfo-avatar {
@@ -24,6 +27,9 @@ page {
   margin: 20rpx;
   border-radius: 50%;
 }
+.login-button {
+  margin: 50px;
+}
 
 .usermotto {
   margin-top: 200px;
@@ -31,16 +37,15 @@ page {
 
 .avatar-wrapper {
   padding: 0;
-  width: 56px !important;
+  width: 128rpx !important;
   border-radius: 8px;
-  margin-top: 40px;
   margin-bottom: 40px;
 }
 
 .avatar {
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 128rpx;
+  height: 128rpx;
 }
 
 .nickname-wrapper {

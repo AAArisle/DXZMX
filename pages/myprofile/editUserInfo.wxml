@@ -1,0 +1,61 @@
+<!--pages/editUserInfo/editUserInfo.wxml-->
+<view class="a">
+  <image src="/images/userAvatar.png" class="a-img" />
+  <view class="a-id">用户ID：{{userid}}</view>
+</view>
+<view class="b">
+  <view class="b-t">用户信息</view>
+  <view class="b-i">
+    <image src="/images/edits.png" class="b-img" bind:tap="clickImg"/>
+  </view>
+</view>
+<view class="c">
+  <view class="c-name">用户名</view>
+  <input type="text" value="微信用户WXYZ" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">性别</view>
+  <input type="text" value="未知" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">邮箱</view>
+  <input type="text" value="1234567890@qq.com" class="c-input" />
+</view>
+<view class="b">
+  <view class="b-t">学生身份</view>
+  <view class="b-i">
+    <image src="/images/userAvatar.png" class="b-img" bind:tap="clickImg"/>
+    <image src="/images/edits.png" class="b-img" bind:tap="clickImg"/>
+  </view>
+</view>
+<view class="c">
+  <view class="c-name">学校</view>
+  <input type="text" value="暨南大学" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">年级</view>
+  <input type="text" value="本科 一年级" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">专业</view>
+  <input type="text" value="软件工程" class="c-input" />
+</view>
+<view class="b">
+  <view class="b-t">测试测试</view>
+  <view class="b-i">
+    <image src="/images/userAvatar.png" class="b-img" bind:tap="clickImg"/>
+    <image src="/images/edits.png" class="b-img" bind:tap="clickImg"/>
+  </view>
+</view>
+<view class="c">
+  <view class="c-name">测试</view>
+  <input type="text" value="测试" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">测试</view>
+  <input type="text" value="测试" class="c-input" />
+</view>
+<view class="c">
+  <view class="c-name">测试</view>
+  <input type="text" value="测试" class="c-input" />
+</view>

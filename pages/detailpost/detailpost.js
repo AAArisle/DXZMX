@@ -1,4 +1,5 @@
 // pages/detailpost/detailpost.js
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp()
 
 Page({
@@ -19,7 +20,7 @@ Page({
     major:["专业1","专业2","专业3"],
     course:["课程1","课程2","课程3"],
     article: [{
-      avatar_url: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+      avatar_url: defaultAvatarUrl,
       fields:{
         author: "作者",
         title: "标题",

@@ -98,14 +98,13 @@
         <image id="{{index}}" src="../../images/del.png" class="comment_delete_button" bind:tap="onClickDeleteComment"/>
       </view> -->
     </view>
-    <t-divider></t-divider>
   </view>
   <view class="blank"></view>
   <view class="tbar">
     <view class="buttons">
       <form catchsubmit="formSubmit" style="background-color: white;" wx:if="{{showInput}}">
         <textarea class="input" placeholder="对大家发表你的看法吧" value="{{commentInput}}" name="body"></textarea>
-        <button type="primary" class="comment_send" formType="submit">发送评论</button>
+        <button type="primary" class="comment_send" formType="submit">发送</button>
       </form>
       <view class="bt">
         <image src="{{markIcon}}" class="btimg3" bind:tap="onClickMark"/>

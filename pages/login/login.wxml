@@ -12,7 +12,7 @@
     <block wx:else>
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button bind:tap="bindViewTap" type="primary" style="position: relative;top: 50%;">进入</button>
+      <button class="login-button" bind:tap="bindViewTap" type="primary" style="position: relative;top: 50%;">进入</button>
     </block>
   </view>
 </view>

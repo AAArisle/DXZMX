@@ -74,6 +74,12 @@ page{
   min-width: 300px;
   margin-bottom: 10px;
 }
+.image{
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+}
 
 .iiimg{
   width: 25px;
@@ -162,6 +168,7 @@ page{
 .comment{
   padding: 5%;
   background-color: white;
+  border-bottom: 1px solid #ededed;
 }
 .user{
   display: flex;
@@ -173,14 +180,15 @@ page{
   border-radius: 50%;
 }
 .nick_name{
-  width: 70%;
+  width: 60%;
   line-height: 40px;
   padding-left: 10px;
-  font-size:20px;
+  font-size:16px;
 }
 .comment_date{
   color: rgb(192, 192, 192);
   line-height: 40px;
+  font-size:14px;
 }
 .comment_body{
   margin-top: 15px;
@@ -213,7 +221,7 @@ page{
 }
 
 .blank{
-  height: 70px;
+  height: 60px;
 }
 
 .buttons{
@@ -231,10 +239,11 @@ page{
   bottom: 70px;
 }
 .comment_send{
-  width: 25%;
+  width: 80px;
   position: fixed;
-  bottom: 80px;
-  right: 15px;
+  bottom: 70px;
+  right: 10px;
+  font-size: 14px;
 }
 .btimg3{
   width: 45px;
