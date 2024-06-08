@@ -46,6 +46,7 @@ Page({
       "userInfo.avatarUrl": avatarUrl,
       hasUserInfo: nickName && avatarUrl && avatarUrl != defaultAvatarUrl,
     })
+    this.uploadData()
   },
   onClickUserMessageEdit(){
     this.setData({
