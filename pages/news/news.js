@@ -104,6 +104,11 @@ Page({
             },
             success: res => {
               let notices = JSON.parse(res.data.notices)
+              for (var i=0;i<notices.length;i++){
+                if (notices[i].fields.title == '') {
+                  notices.splice(i,1)
+                }
+              }
               console.log(notices)
               this.setData({
                 notices: notices
