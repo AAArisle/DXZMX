@@ -26,14 +26,6 @@ Page({
     const historys = wx.getStorageSync('historys') || []
     console.log(historys)
 
-    // 清除异常页面的历史记录
-    let index = historys.indexOf(null)
-    while (index != -1){
-      historys.splice(index, 1)
-      index = historys.indexOf(null)
-    }
-    wx.setStorageSync('historys', historys)
-
     app.login(() => {
       // 用token获取用户数据
       wx.getStorage({

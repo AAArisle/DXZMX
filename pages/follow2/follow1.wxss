@@ -1,6 +1,11 @@
 /* pages/follow/follow.wxss */
+page{
+  background-color:#ededed;
+}
+
 .container {
   padding: 10px;
+  background-color: white;
 }
 
 .header {
@@ -9,8 +14,6 @@
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
   padding: 0;
-  border-top: 1px solid rgb(0, 0, 0);
-  border-bottom: 1px solid rgb(0, 0, 0);
   position: relative; /* 为了相对定位图标 */
 }
 
@@ -44,8 +47,10 @@
 
 .section {
   width: 100%;
-  margin-top: 12px;
-  margin-bottom: 170px;
+  margin-top: 16px;
+  margin-bottom: 100px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(185, 185, 185);
 }
 
 .section-title {

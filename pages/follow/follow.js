@@ -1,99 +1,62 @@
 // pages/follow/follow.js
-Page({
+const app = getApp()
 
-  tapToDetail()
-  {
+Page({
+  tapToDetail(e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../detailpost/detailpost',
+      url: '../detailpost/detailpost?id='+id,
     })
   },
-  searchInHistory(e) {
-    console.log(e)
-  },
-  Edit(e) {
-    console.log(e)
+  Edit() {
+    wx.navigateTo({
+      url: '../follow2/follow1',
+    })
   },
 
   /**
    * 页面的初始数据
    */
   data: {  
-    userInfo: {  
-      nickName: '未设置昵称', // 这里可以保留nickName字段用于其他用途  
-      daysAgoViewed: '未设置查看时间' // 初始值，表示还没有计算过时间差  
-    }
+    school:["大学1","大学2","大学3"],
+    major:["专业1","专业2","专业3"],
+    course:["课程1","课程2","课程3"],
   },  
-  onLoad: function() {  
-    var pastTimestamp = 1600000000; // 假设的过去时间戳  
-    var currentTimestamp = Math.floor(Date.now() / 1000);  
-    var daysDiff = Math.ceil((currentTimestamp - pastTimestamp) / (1000 * 60 * 60 * 24));  
-    var daysAgoViewed = daysDiff + '天前看过';  
-  
-    // 更新data中的userInfo.daysAgoViewed  
-    this.setData({  
-      userInfo: {  
-        ...this.data.userInfo, // 保持userInfo中的其他属性不变  
-        daysAgoViewed: daysAgoViewed // 更新daysAgoViewed属性  
-      }  
-    });
-
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    app.login(() => {
+      // 用token获取用户数据
+      wx.getStorage({
+        key: 'access',
+        success: (result) => {
+          const access = result.data;
+          console.log('index：token获得成功');
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/weixin/tag/',
+            method: 'GET',
+            header: {
+              // 注意字符串 'Bearer ' 尾部有个空格！
+              'Authorization': 'Bearer ' + access
+            },
+            success: res => {
+              // 在小程序调试器中查看返回值是否正确
+              let articles = JSON.parse(res.data.articles)
+              console.log(articles)
+              this.setData({
+                article: articles
+              })
+            }
+          })
+        }
+      });
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-
-   
 })

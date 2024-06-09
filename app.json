@@ -4,6 +4,7 @@
     "pages/login/login",
     "pages/index/index",
     "pages/follow/follow",
+    "pages/follow2/follow1",
     "pages/addpost/addpost",
     "pages/mine/mine",
     "pages/news/news",

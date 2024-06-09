@@ -7,7 +7,7 @@ page{
   display: grid;
   grid-template-columns:9fr 1fr;
   background-color:white;
-  padding: 10rpx
+  padding: 20rpx
 }
 .scroll{
   white-space: nowrap;
@@ -20,6 +20,23 @@ page{
 }
 .arrow{
   margin-top: 15px;
+}
+
+.item{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 5px;
+  border: 1px solid rgb(185, 185, 185);
+  text-align: center;
+}
+.tags{
+  width: 90%;
+  height: 30px;
+  margin-left: 5%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .group {
@@ -38,8 +55,8 @@ page{
 
 .avatar {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
 }
 
 .avatar-wrapper {
@@ -48,38 +65,22 @@ page{
   border-radius: 8px;
 }
 
-.contain{
-  position: absolute;
-  top: 190rpx;
-  left: 00rpx;
+.datas{
   width: 100%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  border-top: 1px solid #f3f3f3;
+  /* border-bottom: 1px solid #f3f3f3; */
+  background-color: #ffffff;
 }
-
-.latest-experience {
-  font-size: 32rpx;
-  text-align: center;
-  margin-bottom: 20rpx;
-  border-top: 5rpx solid #5c5858;
-  border-bottom: 5rpx solid #5c5858;  
-  padding: 10rpx 0;  
-}
-
-
-
-.edit-img {
-  margin-top: 16rpx;
-}
-
-
 .itemss{
   width: 100%;
   margin-left: 1%;
   margin-right: 1%;
   display: flex;
-  position: relative;
 }
-
-
 .dimg{
   width: 24px;
   height: 24px;
@@ -93,16 +94,6 @@ page{
   top: 6px;
   transform: scaleY(-1);
 }
-
-.datas{
-  display: flex;
-  justify-content: center;
-  height: 35px;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
-  background-color: #ffffff;
-}
-
 .datas_num{
   position: relative;
   margin-left: 3px;
