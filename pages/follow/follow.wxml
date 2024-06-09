@@ -3,7 +3,7 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 
-<t-cell title="修改关注对象" hover arrow bind:tap="Edit"/>
+<t-cell title="修改关注对象" hover arrow bind:tap="Edit" leftIcon="setting-1"/>
 
 <t-divider></t-divider>
 

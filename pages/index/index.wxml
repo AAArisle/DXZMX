@@ -4,7 +4,7 @@
 <wxs src="../../wxs/subutil.wxs" module="tools" />
 
 <block wx:for="{{article}}" wx:key="index">
-  <view style="background-color: white; " bind:tap="tapToDetail" data-id="{{item.pk}}">
+  <view style="background-color: white; "bind:tap="tapToDetail" data-id="{{item.pk}}">
     <block wx:if="{{item.fields.school != -1}}">
       <block wx:if="{{tools.sub(item.fields.updated, 0, 22) != tools.sub(item.fields.created, 0, 22)}}">
         <t-cell title="{{item.fields.author}}" description="{{school[item.fields.school]}} | {{tools.sub(item.fields.updated, 0, 10)}}更新">

@@ -8,3 +8,9 @@ page{
   height: 40px;
   margin-right: 20rpx;
 }
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}

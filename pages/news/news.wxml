@@ -1,5 +1,5 @@
 <!--pages/news/news.wxml-->
-<view wx:for="{{news}}" wx:for-item="item" wx:key="initiator_id">
+<!-- <view wx:for="{{news}}" wx:for-item="item" wx:key="initiator_id">
   <t-cell class="news-box" hover arrow bind:tap="tapToMessages" title="{{item.name}}">
     <view class="news-icon-view" slot="left-icon">
       <image class="news-icon" src="{{item.icon}}" ></image>
@@ -8,4 +8,22 @@
       <text class="news-description" space="nbsp" wx:if="{{item.haveUnread}}">{{item.num}}条未读通知    {{item.date}}</text>
     </view>
   </t-cell>
-</view>
+</view> -->
+
+<t-cell title="已读消息" hover arrow leftIcon="notification" bordered="{{false}}" bind:tap="tapToMessages"/>
+
+<t-divider></t-divider>
+
+<view wx:if="{{notices.length == 0}}">目前没有未读消息！</view>
+
+<block wx:for="{{notices}}" wx:key="index">
+  <view style="background-color: white; "bind:tap="tapToDetail" data-id="{{item.fields.target_object_id}}" data-ntid="{{item.pk}}">
+    <t-cell title="{{item.fields.user}}" description="{{item.fields.timestamp}}">
+      <view class="news-icon-view" slot="left-icon">
+        <image class="avatar" slot="left-icon" src="{{item.fields.avatarUrl}}"/>
+      </view>
+    </t-cell>
+    <t-cell title="{{item.fields.verb}}《{{item.fields.title}}》" description="{{item.fields.body}}"></t-cell>
+  </view>
+  <t-divider></t-divider>
+</block>

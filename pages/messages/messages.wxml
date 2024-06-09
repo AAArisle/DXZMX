@@ -1,12 +1,14 @@
 <!--pages/messages/messages.wxml-->
-<block wx:for="{{messages}}" wx:for-item="item" wx:key="id">
-  <view style="background-color: white; " bind:tap="tapToDetail">
-    <t-cell title="{{initiator.name}}" description="{{item.date}}">
+<view wx:if="{{notices.length == 0}}">目前没有已读消息！</view>
+
+<block wx:for="{{notices}}" wx:key="index">
+  <view style="background-color: white; "bind:tap="tapToDetail" data-id="{{item.fields.target_object_id}}">
+    <t-cell title="{{item.fields.user}}" description="{{item.fields.timestamp}}">
       <view class="news-icon-view" slot="left-icon">
-        <image class="news-icon" src="{{initiator.icon}}" ></image>
+        <image class="avatar" slot="left-icon" src="{{item.fields.avatarUrl}}"/>
       </view>
     </t-cell>
-    <t-cell title="{{item.title}}" description="{{item.body}}"></t-cell>
+    <t-cell title="{{item.fields.verb}}《{{item.fields.title}}》" description="{{item.fields.body}}"></t-cell>
   </view>
   <t-divider></t-divider>
 </block>

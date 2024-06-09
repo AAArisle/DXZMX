@@ -1,4 +1,8 @@
 /* pages/mine/mine.wxss */
+page{
+  background-color: #ededed;
+}
+
 .userinfo-nickname {
   font-size: 50rpx;
 }

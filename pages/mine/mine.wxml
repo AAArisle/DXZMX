@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<t-cell class="userinfo" hover arrow hover bind:tap="tapToMyProfile">
+<t-cell hover arrow hover bind:tap="tapToMyProfile" note="个人资料">
   <view class="avatar" slot="left-icon">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
   </view>
@@ -7,8 +7,11 @@
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
 </t-cell>
-<t-cell-group theme="card">
-  <t-cell title="我的收藏" leftIcon="star" hover arrow bind:tap="tapToMyLikes"/>
-  <t-cell title="我分享的经验" leftIcon="share-1" hover arrow bind:tap="tapToMyShared"/>
-  <t-cell title="历史记录" leftIcon="history" hover arrow bind:tap="tapToHistory"/>
-</t-cell-group>
+<t-divider></t-divider>
+<view style="background-color: white;">
+  <t-cell-group theme="card">
+    <t-cell title="我的收藏" leftIcon="star" hover arrow bind:tap="tapToMyLikes"/>
+    <t-cell title="我分享的经验" leftIcon="share-1" hover arrow bind:tap="tapToMyShared"/>
+    <t-cell title="历史记录" leftIcon="history" hover arrow bind:tap="tapToHistory"/>
+  </t-cell-group>
+</view>
