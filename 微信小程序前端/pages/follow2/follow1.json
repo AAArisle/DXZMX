@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "t-divider": "tdesign-miniprogram/divider/divider"
+  },
+  "navigationBarTitleText": "修改关注对象"
+}
